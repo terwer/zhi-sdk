@@ -2,11 +2,17 @@
   "name": "zhi-sdk",
   "version": "0.0.0",
   "description": "a simple siyuan-note sdk",
-  "main": "siyuanApi.ts",
+  "main": "dist/siyuan-api.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.8.4",
+    "vite": "^4.1.4",
+    "vitest": "^0.29.2"
+  }
 }
