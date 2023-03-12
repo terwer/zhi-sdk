@@ -23,28 +23,66 @@
  * questions.
  */
 
+import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
+import BrowserUtil from "~/src/common/browserUtil"
+
 /**
- * 浏览器工具类
+ * 设备类型枚举
  *
  * @public
  * @author terwer
- * @since 1.0.2
+ * @since 1.0.8
  */
-class BrowserUtil {
+export enum DeviceType {
   /**
-   * 是否在浏览器环境
+   * 思源笔记新窗口（Sofill主题新窗口共用）
    */
-  public static isInBrowser = typeof window !== "undefined"
+  DeviceType_Siyuan_NewWin = "Siyuan_NewWin",
+  /**
+   * 思源笔记挂件
+   */
+  DeviceType_Siyuan_Widget = "Siyuan_Widget",
+  /**
+   * Google Chrome浏览器插件
+   */
+  DeviceType_Chrome_Extension = "Chrome_Extension",
+  /**
+   * Google Chrome浏览器（Docker浏览器共用）
+   */
+  DeviceType_Chrome_Browser = "Chrome_Browser",
+}
 
+/**
+ * 设备相关
+ *
+ * @public
+ * @author terwer
+ * @since 1.0.7
+ */
+class DeviceUtil {
   /**
-   * 检测是否运行在Chrome插件中
+   * 获取当前设备
    */
-  public static isInChromeExtension() {
-    if (!BrowserUtil.isInBrowser) {
-      return false
+  public static getDevice() {
+    const siyuanUtil = new SiyuanUtil()
+
+    // 思源笔记挂件
+    if (siyuanUtil.isInSiyuanWidget()) {
+      return DeviceType.DeviceType_Siyuan_Widget
     }
-    return window.location.href.indexOf("chrome-extension://") > -1
+
+    // 思源新窗口
+    if (siyuanUtil.isInSiyuanOrSiyuanNewWin()) {
+      return DeviceType.DeviceType_Siyuan_NewWin
+    }
+
+    // Chrome浏览器插件
+    if (BrowserUtil.isInChromeExtension()) {
+      return DeviceType.DeviceType_Chrome_Extension
+    }
+
+    return DeviceType.DeviceType_Chrome_Browser
   }
 }
 
-export default BrowserUtil
+export default DeviceUtil

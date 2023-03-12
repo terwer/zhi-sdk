@@ -38,10 +38,44 @@ import path from "path"
  */
 class SiyuanUtil {
   /**
+   * 思源笔记或者思源笔记新窗口，等价于Electron环境
+   */
+  public isInSiyuanOrSiyuanNewWin = () => {
+    return BrowserUtil.isInBrowser
+  }
+
+  /**
+   * 思源笔记Iframe挂件环境
+   */
+  public isInSiyuanWidget = () => {
+    return (
+      window.frameElement != null &&
+      window.frameElement.parentElement != null &&
+      window.frameElement.parentElement.parentElement != null &&
+      window.frameElement.parentElement.parentElement.getAttribute("data-node-id") !== ""
+    )
+  }
+
+  /**
+   * 思源笔记新窗口
+   */
+  public isInSiyuanNewWin = () => {
+    return typeof (window as any).terwer !== "undefined"
+  }
+  /**
    * 思源笔记 window 对象
    */
   public syWin() {
-    return (BrowserUtil.isInBrowser ? window : undefined) as any
+    let win
+    if (this.isInSiyuanWidget()) {
+      win = parent.window
+    } else {
+      if (this.isInSiyuanNewWin()) {
+        win = window
+      }
+      win = window
+    }
+    return (win ?? undefined) as any
   }
 
   /**
@@ -49,6 +83,19 @@ class SiyuanUtil {
    */
   public syProcess() {
     return (BrowserUtil.isInBrowser ? window.process : process) as any
+  }
+
+  /**
+   * 引入依赖
+   *
+   * @param libpath - 依赖全路径
+   */
+  public requireLib = (libpath: string) => {
+    const syWin = this.syWin()
+    if (!this.syWin()) {
+      throw new Error("Not in siyuan env")
+    }
+    return syWin.require(libpath)
   }
 
   /**
