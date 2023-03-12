@@ -2,7 +2,7 @@
 
 a simple sdk for siyuan-note, blog, and more
 
-![version](https://img.shields.io/github/release/terwer/zhi-ts-template.svg?style=flat-square)
+![version](https://img.shields.io/github/release/terwer/zhi-sdk.svg?style=flat-square)
 ![license](https://img.shields.io/badge/license-GPL-blue.svg?style=popout-square)
 
 ## Usage
