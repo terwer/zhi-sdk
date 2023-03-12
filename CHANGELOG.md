@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/terwer/zhi-sdk/compare/v1.0.2...v1.0.3) (2023-03-12)
+
+
+### Bug Fixes
+
+* add version libs ([8eab47a](https://github.com/terwer/zhi-sdk/commit/8eab47a996da12a469b99c376474b66a411b66f3))
+* add version libs] ([38ec8d1](https://github.com/terwer/zhi-sdk/commit/38ec8d1cf5de184d6fca333287553c88a6e07f6f))
+
 ## [1.0.2](https://github.com/terwer/zhi-sdk/compare/v1.0.1...v1.0.2) (2023-03-12)
 
 
