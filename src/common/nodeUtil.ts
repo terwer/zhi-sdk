@@ -28,6 +28,7 @@ import cjsUtil from "~/src/common/cjsUtil"
 /**
  * 警告⚠️：请勿在非Node环境调用此文件中的任何方法
  *
+ * @public
  * Node通用工具类
  */
 class NodeUtil {
@@ -39,8 +40,8 @@ class NodeUtil {
    * 可以使用Node.js内置的fs模块中的`copyFileSync`或者`copyFile`方法来复制文件夹。不过需要注意，这两个方法只能复制单个文件，如果想要复制整个文件夹，需要自己编写递归函数实现。
    * 本方法用于复制一个文件夹以及其中所有子文件和子文件夹
    *
-   * @param source 源文件
-   * @param target 目标文件
+   * @param source - 源文件
+   * @param target - 目标文件
    * @author terwer
    * @since 1.0.0
    */
@@ -68,7 +69,7 @@ class NodeUtil {
   /**
    * 删除文件夹
    *
-   * @param folder 文件夹
+   * @param folder - 文件夹
    */
   rmFolder(folder: string) {
     if (this.fs.existsSync(folder)) {

@@ -36,6 +36,13 @@ import BlogApi from "~/src/blog-api/blogApi"
 import SiyuanServerApi from "~/src/siyuan-api/serverApi"
 import SiyuanClientApi from "~/src/siyuan-api/clientApi"
 import Common from "~/src/common"
+import StrUtil from "~/src/common/strUtil"
+import BrowserUtil from "~/src/common/browserUtil"
+import NodeUtil from "~/src/common/nodeUtil"
+import DateUtil from "~/src/common/dateUtil"
+import CjsUtil from "~/src/common/cjsUtil"
+import VersionUtil from "~/src/common/versionUtil"
+import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
 
 /**
  * SDK操作统一入口，建议大部分操作使用此工具类实现
@@ -107,4 +114,6 @@ class ZhiSdk {
 }
 
 export default ZhiSdk
-export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, BlogApi, Common }
+export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, SiyuanUtil }
+export { BlogApi }
+export { Common, BrowserUtil, CjsUtil, DateUtil, NodeUtil, StrUtil, VersionUtil }

@@ -26,6 +26,7 @@
 /**
  * 时间处理工具类
  *
+ * @public
  * @author terwer
  * @since 1.0.0
  */
@@ -34,10 +35,9 @@ class DateUtil {
 
   /**
    * 给日期添加小时
-   * @param date
-   * @param numOfHours
-   * @returns {*}
    *
+   * @param date - Date
+   * @param numOfHours - 数字
    * @author terwer
    * @since 1.0.0
    */
@@ -49,10 +49,9 @@ class DateUtil {
   /**
    * 转换ISO日期为中文日期
    *
-   * @param str '2022-07-18T06:25:48.000Z
-   * @param isAddTimeZone 是否增加时区（默认不增加）
-   * @param isShort 是否只返回日期
-   * @returns {string|*}
+   * @param str - '2022-07-18T06:25:48.000Z
+   * @param isAddTimeZone - 是否增加时区（默认不增加）
+   * @param isShort - 是否只返回日期
    * @author terwer
    * @since 1.0.0
    */
