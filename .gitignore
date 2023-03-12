@@ -1,3 +1,30 @@
+# JetBrains
 .idea
+
+# Node
 node_modules
-dist
+lib
+typings
+vite*.mjs
+
+# Docs
+etc
+temp
+
+# scripts
+script/__pycache__
+script/venv
+
+# Vite
+coverage
+.env
+*.local
+
+# Mac
+.DS_Store
+
+# Vercel
+.vercel
+docs/.vitepress/dist
+docs/.vitepress/cache
+docs/doc
