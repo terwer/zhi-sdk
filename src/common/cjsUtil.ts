@@ -24,15 +24,36 @@
  */
 
 /**
- * zhi-sdk 通用常量配置
+ * 警告⚠️：请勿在非Node环境调用此文件中的任何方法
+ *
+ * CommonJS辅助工具栏，仅仅在思源笔记的Electron环境使用
  *
  * @author terwer
  * @since 1.0.0
  */
-class SdkConfig {
+class CjsUtil {
   /**
-   * 日志栈大小
+   * 安全的require
+   * 注意：使用vite打包，require和window.require行为不一样，为了兼容性，强烈建议使用cjsUtil.safeRequire
+   *
+   * @param moduleName 模块名
+   * @author terwer
+   * @since 1.0.0
    */
-  public static LOG_STACK_SIZE = 1
+  public static safeRequire(moduleName: string): any {
+    // Node环境
+    if (typeof window === "undefined") {
+      return require(moduleName)
+    }
+
+    // 构建环境
+    if (require === window.require) {
+      return require(moduleName)
+    }
+
+    // Electron浏览器环境
+    return window.require(moduleName)
+  }
 }
-export default SdkConfig
+
+export default CjsUtil

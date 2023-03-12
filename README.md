@@ -14,13 +14,22 @@ pnpm add zhi-sdk
 ```ts
 import ZhiSdk from "zhi-sdk"
 
+// init zhiSdk
 const zhiSdk = new ZhiSdk()
+
+// siyuanAPI
 const siyuanApi = zhiSdk.siyuanApi
 console.log(siyuanApi.serverApi.VERSION)
 console.log(siyuanApi.clientApi.VERSION)
 
+// blogApi
 const blogApi = zhiSdk.blogApi
 console.log(blogApi.VERSION)
+
+// common
+const msg = "message"
+const fmsg = zhiSdk.common.strUtil.f("This a {0}", msg)
+console.log(fmsg)
 ```
 
 ## Architecture

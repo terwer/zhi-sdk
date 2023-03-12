@@ -24,15 +24,28 @@
  */
 
 /**
- * zhi-sdk 通用常量配置
+ * 字符串工具类
  *
  * @author terwer
- * @since 1.0.0
+ * @since 0.0.1
  */
-class SdkConfig {
+class StrUtil {
   /**
-   * 日志栈大小
+   * 格式化字符串
+   *
+   * @param str 字符串，可用占位符，例如：test{0}str
+   * @param args 按占位符顺序排列的参数
+   * @author terwer
+   * @since 0.0.1
    */
-  public static LOG_STACK_SIZE = 1
+  public f(str: string, ...args: any): string {
+    let ret = str
+    for (let i = 0; i < args.length; i++) {
+      const arg = args[i]
+      ret = ret.replace(`{${i}}`, arg)
+    }
+    return ret
+  }
 }
-export default SdkConfig
+
+export default StrUtil

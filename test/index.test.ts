@@ -28,6 +28,12 @@ import ZhiSdk from "~/src"
 import Env from "zhi-env"
 
 describe("test zhi-sdk", () => {
+  it("test sdk with default env", function () {
+    const zhiSdk = new ZhiSdk()
+    const logger = zhiSdk.getLogger()
+    logger.info("This is info log from zhi-log with default env")
+  })
+
   it("test logger", function () {
     const env = new Env(import.meta.env)
 
@@ -43,6 +49,10 @@ describe("test zhi-sdk", () => {
     const siyuanApi = zhiSdk.siyuanApi
     console.log("siyuanApi.serverApi=>", siyuanApi.serverApi.VERSION)
     console.log("siyuanApi.clientApi=>", siyuanApi.clientApi.VERSION)
+    console.log(
+      "siyuanApi.siyuanUtil.getCrossPlatformAppDataFolder=>",
+      siyuanApi.siyuanUtil.getCrossPlatformAppDataFolder()
+    )
   })
 
   it("test blogApi", function () {
@@ -51,5 +61,13 @@ describe("test zhi-sdk", () => {
     const zhiSdk = new ZhiSdk(env)
     const blogApi = zhiSdk.blogApi
     console.log("siyuanApi.blogApi=>", blogApi.VERSION)
+  })
+
+  it("test common", function () {
+    const env = new Env(import.meta.env)
+
+    const zhiSdk = new ZhiSdk(env)
+    const isInBrowser = zhiSdk.common.browserUtil.isInBrowser
+    console.log("isInBrowser=>", isInBrowser)
   })
 })

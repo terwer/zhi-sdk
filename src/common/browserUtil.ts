@@ -23,16 +23,8 @@
  * questions.
  */
 
-/**
- * zhi-sdk 通用常量配置
- *
- * @author terwer
- * @since 1.0.0
- */
-class SdkConfig {
-  /**
-   * 日志栈大小
-   */
-  public static LOG_STACK_SIZE = 1
+class BrowserUtil {
+  public static isInBrowser = typeof window !== "undefined"
 }
-export default SdkConfig
+
+export default BrowserUtil

@@ -25,6 +25,7 @@
 
 import SiyuanServerApi from "~/src/siyuan-api/serverApi"
 import SiyuanClientApi from "~/src/siyuan-api/clientApi"
+import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
 
 /**
  * 思源笔记API
@@ -43,9 +44,15 @@ class SiyuanApi {
    */
   public readonly clientApi
 
+  /**
+   * 思源笔记工具类
+   */
+  public readonly siyuanUtil
+
   constructor() {
     this.serverApi = new SiyuanServerApi()
     this.clientApi = new SiyuanClientApi()
+    this.siyuanUtil = new SiyuanUtil()
   }
 }
 

@@ -23,16 +23,29 @@
  * questions.
  */
 
+import StrUtil from "~/src/common/strUtil"
+import BrowserUtil from "~/src/common/browserUtil"
+import NodeUtil from "~/src/common/nodeUtil"
+import DateUtil from "~/src/common/dateUtil"
+import CjsUtil from "~/src/common/cjsUtil"
+
 /**
- * zhi-sdk 通用常量配置
- *
- * @author terwer
- * @since 1.0.0
+ * 通用工具类
  */
-class SdkConfig {
-  /**
-   * 日志栈大小
-   */
-  public static LOG_STACK_SIZE = 1
+class Common {
+  public readonly strUtil
+  public readonly dateUtil
+  public readonly cjsUtil
+  public readonly nodeUtil
+  public readonly browserUtil
+
+  constructor() {
+    this.strUtil = new StrUtil()
+    this.dateUtil = new DateUtil()
+    this.cjsUtil = new CjsUtil()
+    this.nodeUtil = new NodeUtil()
+    this.browserUtil = BrowserUtil
+  }
 }
-export default SdkConfig
+
+export default Common
