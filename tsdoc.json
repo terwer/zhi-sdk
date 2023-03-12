@@ -27,6 +27,11 @@
       "tagName": "@protected",
       "syntaxKind": "block",
       "allowMultiple": false
+    },
+    {
+      "tagName": "@node",
+      "syntaxKind": "block",
+      "allowMultiple": false
     }
   ],
 
@@ -36,6 +41,7 @@
     "@author": true,
     "@since": true,
     "@private": true,
-    "@protected": true
+    "@protected": true,
+    "@node": true
   }
 }

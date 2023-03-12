@@ -82,18 +82,28 @@ class NodeUtil {
   /**
    * 路径拼接
    *
-   * @param paths 路径数组
+   * @param paths - 路径数组
    */
   public joinPath(...paths: string[]): string {
     return path.join(...paths)
   }
 
-  public cwd(pathname: string): string {
+  /**
+   * 获取相对路径
+   *
+   * @param pathname - 路径名称
+   */
+  public dirname(pathname: string): string {
     return path.dirname(pathname)
   }
 
+  /**
+   * 获取绝对路径
+   *
+   * @param pathname - 路径名称
+   */
   public absPath(pathname: string): string {
-    const cwdDir = this.cwd(pathname)
+    const cwdDir = this.dirname(pathname)
     return path.resolve(path.dirname(cwdDir), pathname)
   }
 }

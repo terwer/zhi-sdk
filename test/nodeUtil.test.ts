@@ -39,7 +39,7 @@ describe("test nodeUtil", () => {
 
   it("test joinPath", () => {
     const nodeUtil = new NodeUtil()
-    const cwd = nodeUtil.cwd(".")
+    const cwd = nodeUtil.dirname(".")
     const absCwd = nodeUtil.absPath(cwd)
     console.log("cwd=>", cwd)
     console.log("absCwd=>", absCwd)

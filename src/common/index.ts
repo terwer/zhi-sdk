@@ -28,6 +28,7 @@ import BrowserUtil from "~/src/common/browserUtil"
 import NodeUtil from "~/src/common/nodeUtil"
 import DateUtil from "~/src/common/dateUtil"
 import VersionUtil from "~/src/common/versionUtil"
+import DeviceUtil from "~/src/common/deviceUtil"
 
 /**
  * 通用工具类
@@ -62,12 +63,18 @@ class Common {
    */
   public readonly versionUtil
 
+  /**
+   * 设备工具类
+   */
+  public readonly deviceUtil
+
   constructor() {
     this.strUtil = new StrUtil()
     this.dateUtil = new DateUtil()
     this.nodeUtil = new NodeUtil()
     this.browserUtil = BrowserUtil
     this.versionUtil = new VersionUtil()
+    this.deviceUtil = DeviceUtil
   }
 }
 

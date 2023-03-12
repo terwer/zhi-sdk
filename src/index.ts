@@ -42,6 +42,8 @@ import NodeUtil from "~/src/common/nodeUtil"
 import DateUtil from "~/src/common/dateUtil"
 import VersionUtil from "~/src/common/versionUtil"
 import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
+import DeviceUtil from "~/src/common/deviceUtil"
+import { DeviceType } from "~/src/common/deviceUtil"
 
 /**
  * SDK操作统一入口，建议大部分操作使用此工具类实现
@@ -115,4 +117,4 @@ class ZhiSdk {
 export default ZhiSdk
 export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, SiyuanUtil }
 export { BlogApi }
-export { Common, BrowserUtil, DateUtil, NodeUtil, StrUtil, VersionUtil }
+export { Common, BrowserUtil, DateUtil, NodeUtil, StrUtil, VersionUtil, DeviceUtil, DeviceType }
