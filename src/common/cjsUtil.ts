@@ -23,37 +23,37 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-
 /**
- * 思源笔记API
+ * 警告⚠️：请勿在非Node环境调用此文件中的任何方法
  *
- * @public
+ * CommonJS辅助工具栏，仅仅在思源笔记的Electron环境使用
+ *
  * @author terwer
  * @since 1.0.0
  */
-class SiyuanApi {
+class CjsUtil {
   /**
-   * 思源笔记内核API
+   * 安全的require
+   * 注意：使用vite打包，require和window.require行为不一样，为了兼容性，强烈建议使用cjsUtil.safeRequire
+   *
+   * @param moduleName 模块名
+   * @author terwer
+   * @since 1.0.0
    */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
+  public static safeRequire(moduleName: string): any {
+    // Node环境
+    if (typeof window === "undefined") {
+      return require(moduleName)
+    }
 
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
+    // 构建环境
+    if (require === window.require) {
+      return require(moduleName)
+    }
 
-  constructor() {
-    this.serverApi = new SiyuanServerApi()
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
+    // Electron浏览器环境
+    return window.require(moduleName)
   }
 }
 
-export default SiyuanApi
+export default CjsUtil

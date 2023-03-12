@@ -23,37 +23,29 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
+import StrUtil from "~/src/common/strUtil"
+import BrowserUtil from "~/src/common/browserUtil"
+import NodeUtil from "~/src/common/nodeUtil"
+import DateUtil from "~/src/common/dateUtil"
+import CjsUtil from "~/src/common/cjsUtil"
 
 /**
- * 思源笔记API
- *
- * @public
- * @author terwer
- * @since 1.0.0
+ * 通用工具类
  */
-class SiyuanApi {
-  /**
-   * 思源笔记内核API
-   */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
-
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
+class Common {
+  public readonly strUtil
+  public readonly dateUtil
+  public readonly cjsUtil
+  public readonly nodeUtil
+  public readonly browserUtil
 
   constructor() {
-    this.serverApi = new SiyuanServerApi()
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
+    this.strUtil = new StrUtil()
+    this.dateUtil = new DateUtil()
+    this.cjsUtil = new CjsUtil()
+    this.nodeUtil = new NodeUtil()
+    this.browserUtil = BrowserUtil
   }
 }
 
-export default SiyuanApi
+export default Common

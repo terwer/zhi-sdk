@@ -23,37 +23,29 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-
 /**
- * 思源笔记API
+ * 字符串工具类
  *
- * @public
  * @author terwer
- * @since 1.0.0
+ * @since 0.0.1
  */
-class SiyuanApi {
+class StrUtil {
   /**
-   * 思源笔记内核API
+   * 格式化字符串
+   *
+   * @param str 字符串，可用占位符，例如：test{0}str
+   * @param args 按占位符顺序排列的参数
+   * @author terwer
+   * @since 0.0.1
    */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
-
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  constructor() {
-    this.serverApi = new SiyuanServerApi()
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
+  public f(str: string, ...args: any): string {
+    let ret = str
+    for (let i = 0; i < args.length; i++) {
+      const arg = args[i]
+      ret = ret.replace(`{${i}}`, arg)
+    }
+    return ret
   }
 }
 
-export default SiyuanApi
+export default StrUtil

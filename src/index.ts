@@ -35,6 +35,7 @@ import SiyuanApi from "~/src/siyuan-api/siyuanApi"
 import BlogApi from "~/src/blog-api/blogApi"
 import SiyuanServerApi from "~/src/siyuan-api/serverApi"
 import SiyuanClientApi from "~/src/siyuan-api/clientApi"
+import Common from "~/src/common"
 
 /**
  * SDK操作统一入口，建议大部分操作使用此工具类实现
@@ -68,21 +69,32 @@ class ZhiSdk {
   public readonly blogApi
 
   /**
-   * 构造 zhi-sdk 对象
-   * @param env - 环境变量对象
+   * 通用工具类
    */
-  constructor(env: Env) {
+
+  public readonly common
+
+  /**
+   * 构造 zhi-sdk 对象
+   * @param env - 可选，环境变量对象
+   */
+  constructor(env?: Env) {
     this.env = env
     this.logger = LogFactory.defaultLogger(this.env, SdkConfig.LOG_STACK_SIZE)
 
     this.siyuanApi = new SiyuanApi()
     this.blogApi = new BlogApi()
+
+    this.common = new Common()
   }
 
   /**
    * 获取配置环境变量
    */
   public getEnv() {
+    if (!this.env) {
+      throw new Error("env is not initiated, please use new ZhiSdk(env) create ZhiSdk object!")
+    }
     return this.env
   }
 
@@ -95,4 +107,4 @@ class ZhiSdk {
 }
 
 export default ZhiSdk
-export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, BlogApi }
+export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, BlogApi, Common }
