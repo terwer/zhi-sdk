@@ -24,7 +24,7 @@
  */
 
 /**
- * zhi 主题通用常量配置
+ * zhi-sdk 通用常量配置
  *
  * @author terwer
  * @since 1.0.0
