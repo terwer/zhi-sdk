@@ -24,22 +24,19 @@
  */
 
 import BrowserUtil from "~/src/common/browserUtil"
-import CjsUtil from "~/src/common/cjsUtil"
+import path from "path"
 
 /**
+ * 警告⚠️：请勿在非Node环境调用此文件中的任何方法
+ *
  * 思源笔记工具类
  *
  * @public
+ * @node
  * @author terwer
  * @since 1.0.0
  */
 class SiyuanUtil {
-  private readonly path
-
-  constructor() {
-    this.path = CjsUtil.safeRequire("path")
-  }
-
   /**
    * 思源笔记 window 对象
    */
@@ -78,35 +75,35 @@ class SiyuanUtil {
    * 思源笔记 appearance 目录
    */
   public SIYUAN_APPEARANCE_PATH() {
-    return this.path.join(this.SIYUAN_CONF_PATH(), "appearance")
+    return path.join(this.SIYUAN_CONF_PATH(), "appearance")
   }
 
   /**
    * 思源笔记 themes 目录
    */
   public SIYUAN_THEME_PATH() {
-    return this.path.join(this.SIYUAN_APPEARANCE_PATH(), "themes")
+    return path.join(this.SIYUAN_APPEARANCE_PATH(), "themes")
   }
 
   /**
    * zhi 主题目录
    */
   public ZHI_THEME_PATH() {
-    return this.path.join(this.SIYUAN_THEME_PATH(), "zhi")
+    return path.join(this.SIYUAN_THEME_PATH(), "zhi")
   }
 
   /**
    * zhi 主题构建目录
    */
   public ZHI_THEME_DIST_PATH() {
-    return this.path.join(this.ZHI_THEME_PATH(), "apps", "theme", "dist")
+    return path.join(this.ZHI_THEME_PATH(), "apps", "theme", "dist")
   }
 
   /**
    * zhi 博客构建目录
    */
   public ZHI_BLOG_DIST_PATH() {
-    return this.path.join(this.SIYUAN_THEME_PATH(), "apps", "blog", "dist")
+    return path.join(this.SIYUAN_THEME_PATH(), "apps", "blog", "dist")
   }
 
   /**
@@ -115,7 +112,7 @@ class SiyuanUtil {
   getCrossPlatformAppDataFolder = () => {
     let configFilePath
     if (this.syProcess()?.platform === "darwin") {
-      configFilePath = this.path.join(this.syProcess()?.env.HOME, "/Library/Application Support")
+      configFilePath = path.join(this.syProcess()?.env.HOME, "/Library/Application Support")
     } else if (this.syProcess()?.platform === "win32") {
       // Roaming包含在APPDATA中了
       configFilePath = this.syProcess()?.env.APPDATA
