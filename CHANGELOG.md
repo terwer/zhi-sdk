@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/terwer/zhi-sdk/compare/v1.0.4...v1.0.5) (2023-03-12)
+
+
+### Bug Fixes
+
+* fix path require ([1a18e3e](https://github.com/terwer/zhi-sdk/commit/1a18e3e8df592095f4de6698c6c798eac474dd74))
+
 ## [1.0.4](https://github.com/terwer/zhi-sdk/compare/v1.0.3...v1.0.4) (2023-03-12)
 
 
