@@ -71,7 +71,7 @@ class NodeUtil {
    *
    * @param folder - 文件夹
    */
-  rmFolder(folder: string) {
+  public rmFolder(folder: string) {
     if (this.fs.existsSync(folder)) {
       // fs.rm(folder, { recursive: true, force: true })
       this.fs.rmdirSync(folder, { recursive: true })

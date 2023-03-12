@@ -23,31 +23,11 @@
  * questions.
  */
 
-/**
- * 警告⚠️：请勿在非Node环境调用此文件中的任何方法
- *
- * CommonJS辅助工具栏，仅仅在思源笔记的Electron环境使用
- *
- * @public
- * @author terwer
- * @since 1.0.0
- */
-class CjsUtil {
-  /**
-   * 安全的require
-   * 注意：使用vite打包，require和window.require行为不一样，为了兼容性，强烈建议使用cjsUtil.safeRequire
-   *
-   * @param moduleName - 模块名
-   * @author terwer
-   * @since 1.0.0
-   */
-  public static safeRequire(moduleName: string): any {
-    if (typeof window !== "undefined") {
-      return window.require(moduleName)
-    }
+import { describe, it } from "vitest"
+import CjsUtil from "../src/common/cjsUtil"
 
-    return require(moduleName)
-  }
-}
-
-export default CjsUtil
+describe("test cjsUtil", () => {
+  it("test safeRequire", function () {
+    CjsUtil.safeRequire("fs")
+  })
+})
