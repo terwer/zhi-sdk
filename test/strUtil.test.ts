@@ -23,34 +23,12 @@
  * questions.
  */
 
-/**
- * 字符串工具类
- *
- * @public
- * @author terwer
- * @since 0.0.1
- */
-class StrUtil {
-  /**
-   * 格式化字符串
-   *
-   * @param str - 字符串，可用占位符，例如：test\{0\}str
-   * @param args - 按占位符顺序排列的参数
-   * @author terwer
-   * @since 0.0.1
-   */
-  public f(str: string, ...args: (string | number | boolean | object)[]): string {
-    let ret = str
-    for (let i = 0; i < args.length; i++) {
-      const arg = args[i]
-      if (typeof arg === "string") {
-        ret = ret.replace(`{${i}}`, arg)
-      } else {
-        ret = ret.replace(`{${i}}`, arg.toString())
-      }
-    }
-    return ret
-  }
-}
+import { describe, it } from "vitest"
+import ZhiSdk from "~/src/index"
 
-export default StrUtil
+describe("test strUtil", () => {
+  it("test strUtil format", () => {
+    const result = new ZhiSdk().common.strUtil.f("This {0} {1} {2} {3}", 2.1, "message", true, 1)
+    console.log("strUtil format:", result)
+  })
+})

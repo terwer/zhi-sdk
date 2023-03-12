@@ -7,12 +7,14 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.54.1
   '@typescript-eslint/parser': ^5.54.1
   '@vitest/coverage-c8': ^0.29.2
+  compare-versions: 6.0.0-rc.1
   eslint: ^8.35.0
   eslint-config-prettier: ^8.7.0
   eslint-plugin-prettier: ^4.2.1
   jsdoc-babel: ^0.5.0
   jsdoc2vitepress: ^1.0.5
   prettier: ^2.8.4
+  siyuan: ^0.3.12
   ts-node: ^10.9.1
   typescript: ^4.9.5
   vite: ^4.1.4
@@ -25,6 +27,8 @@ specifiers:
   zhi-log: ^1.5.5
 
 dependencies:
+  compare-versions: 6.0.0-rc.1
+  siyuan: 0.3.12
   zhi-log: 1.5.5
 
 devDependencies:
@@ -3875,6 +3879,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /compare-versions/6.0.0-rc.1:
+    resolution: {integrity: sha512-cFhkjbGY1jLFWIV7KegECbfuyYPxSGvgGkdkfM+ibboQDoPwg2FRHm5BSNTOApiauRBzJIQH7qvOJs2sW5ueKQ==}
+    dev: false
+
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
@@ -5690,6 +5698,10 @@ packages:
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
     dev: true
+
+  /siyuan/0.3.12:
+    resolution: {integrity: sha512-Hcjn7Ujisayi9SW5o0DBtV2Jj/B8PKEXlIksJfbyeTYAtTBpgy++Fhy3nO0Pz1rJazadLt/dxKZ1X8JvlDgFHw==}
+    dev: false
 
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}

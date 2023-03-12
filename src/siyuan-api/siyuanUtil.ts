@@ -28,39 +28,66 @@ import BrowserUtil from "~/src/common/browserUtil"
 
 const path = cjsUtil.safeRequire("path")
 
+/**
+ * 思源笔记工具类
+ *
+ * @public
+ * @author terwer
+ * @since 1.0.0
+ */
 class SiyuanUtil {
+  /**
+   * 思源笔记 window 对象
+   */
   public syWin() {
     return (BrowserUtil.isInBrowser ? window : {}) as any
   }
 
+  /**
+   * 思源笔记 process 对象
+   */
   public syProcess() {
     return (BrowserUtil.isInBrowser ? window.process : process) as any
   }
 
+  /**
+   * 思源笔记 conf 目录
+   */
   public SIYUAN_CONF_PATH() {
     return this.syWin()?.siyuan.config.system.confDir
   }
 
+  /**
+   * 思源笔记 data 目录
+   */
   public SIYUAN_DATA_PATH() {
     return this.syWin()?.siyuan.config.system.dataDir
   }
 
+  /**
+   * 思源笔记 appearance 目录
+   */
   public SIYUAN_APPEARANCE_PATH() {
     return path.join(this.SIYUAN_CONF_PATH(), "appearance")
   }
 
+  /**
+   * 思源笔记 themes 目录
+   */
   public SIYUAN_THEME_PATH() {
     return path.join(this.SIYUAN_APPEARANCE_PATH(), "themes")
   }
 
+  /**
+   * zhi 主题目录
+   */
   public ZHI_THEME_PATH() {
     return path.join(this.SIYUAN_THEME_PATH(), "zhi")
   }
 
-  public ZHI_CJS_PATH() {
-    return path.join(this.ZHI_THEME_PATH(), "dist-cjs")
-  }
-
+  /**
+   * 获取跨平台的用户配置文件夹
+   */
   getCrossPlatformAppDataFolder = () => {
     let configFilePath
     if (this.syProcess()?.platform === "darwin") {

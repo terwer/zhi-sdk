@@ -28,23 +28,48 @@ import BrowserUtil from "~/src/common/browserUtil"
 import NodeUtil from "~/src/common/nodeUtil"
 import DateUtil from "~/src/common/dateUtil"
 import CjsUtil from "~/src/common/cjsUtil"
+import VersionUtil from "~/src/common/versionUtil"
 
 /**
  * 通用工具类
+ *
+ * @public
+ * @author terwer
+ * @since 1.0.2
  */
 class Common {
+  /**
+   * 字符串操作工具类
+   */
   public readonly strUtil
+  /**
+   * 日期处理工具类
+   */
   public readonly dateUtil
+  /**
+   * commonJS工具类
+   */
   public readonly cjsUtil
+  /**
+   * NodeJS内部工具类
+   */
   public readonly nodeUtil
+  /**
+   * 浏览器工具类
+   */
   public readonly browserUtil
+  /**
+   * 版本号操作工具类
+   */
+  public readonly versionUtil
 
   constructor() {
     this.strUtil = new StrUtil()
     this.dateUtil = new DateUtil()
-    this.cjsUtil = new CjsUtil()
+    this.cjsUtil = CjsUtil
     this.nodeUtil = new NodeUtil()
     this.browserUtil = BrowserUtil
+    this.versionUtil = new VersionUtil()
   }
 }
 

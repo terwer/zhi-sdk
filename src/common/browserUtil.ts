@@ -23,7 +23,17 @@
  * questions.
  */
 
+/**
+ * 浏览器工具类
+ *
+ * @public
+ * @author terwer
+ * @since 1.0.2
+ */
 class BrowserUtil {
+  /**
+   * 是否在浏览器环境
+   */
   public static isInBrowser = typeof window !== "undefined"
 }
 
