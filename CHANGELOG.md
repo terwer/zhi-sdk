@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.7](https://github.com/terwer/zhi-sdk/compare/v1.0.6...v1.0.7) (2023-03-12)
+
+
+### Bug Fixes
+
+* fix require ([f5c0b24](https://github.com/terwer/zhi-sdk/commit/f5c0b24420ac2d74380f387077c09f38d1f64ab4))
+
 ## [1.0.6](https://github.com/terwer/zhi-sdk/compare/v1.0.5...v1.0.6) (2023-03-12)
 
 ### Bug Fixes
