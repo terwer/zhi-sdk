@@ -86,6 +86,20 @@ class SiyuanUtil {
   }
 
   /**
+   * zhi 主题构建目录
+   */
+  public ZHI_THEME_DIST_PATH() {
+    return path.join(this.ZHI_THEME_PATH(), "apps", "theme", "dist")
+  }
+
+  /**
+   * zhi 博客构建目录
+   */
+  public ZHI_BLOG_DIST_PATH() {
+    return path.join(this.SIYUAN_THEME_PATH(), "apps", "blog", "dist")
+  }
+
+  /**
    * 获取跨平台的用户配置文件夹
    */
   getCrossPlatformAppDataFolder = () => {

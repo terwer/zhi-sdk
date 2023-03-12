@@ -40,12 +40,19 @@ console.log(fmsg)
   - zhi-env
   - zhi-log
   - zhi-common
+    - strUtil
+    - dateUtil
+    - cjsUtil
+    - nodeUtil
+    - browserUtil
+    - versionUtil
   - zhi-core
   - zhi-ui
   - zhi-middleware
   - zhi-siyuan-api
     - zhi-siyuan-server-api
     - zhi-siyuan-client-api
+    - zhi-siyuan-util
   - zhi-blog-api
     - zhi-metaweblog-api
       - zhi-wordpress
