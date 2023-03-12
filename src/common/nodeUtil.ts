@@ -23,18 +23,19 @@
  * questions.
  */
 
-import cjsUtil from "~/src/common/cjsUtil"
+import fs from "fs"
+import path from "path"
 
 /**
  * 警告⚠️：请勿在非Node环境调用此文件中的任何方法
  *
- * @public
  * Node通用工具类
+ *
+ * @public
+ * @node
+
  */
 class NodeUtil {
-  private readonly fs = cjsUtil.safeRequire("fs")
-  private readonly path = cjsUtil.safeRequire("path")
-
   /**
    *
    * 可以使用Node.js内置的fs模块中的`copyFileSync`或者`copyFile`方法来复制文件夹。不过需要注意，这两个方法只能复制单个文件，如果想要复制整个文件夹，需要自己编写递归函数实现。
@@ -48,19 +49,19 @@ class NodeUtil {
   copyFolderSync(source: string, target: string): void {
     const that = this
 
-    if (!this.fs.existsSync(target)) {
-      this.fs.mkdirSync(target)
+    if (!fs.existsSync(target)) {
+      fs.mkdirSync(target)
     }
 
-    if (this.fs.lstatSync(source).isDirectory()) {
-      const files: any[] = this.fs.readdirSync(source)
+    if (fs.lstatSync(source).isDirectory()) {
+      const files: any[] = fs.readdirSync(source)
 
       files.forEach(function (file: any) {
-        const curSource = that.path.join(source, file)
-        if (that.fs.lstatSync(curSource).isDirectory()) {
-          that.copyFolderSync(curSource, that.path.join(target, file))
+        const curSource = path.join(source, file)
+        if (fs.lstatSync(curSource).isDirectory()) {
+          that.copyFolderSync(curSource, path.join(target, file))
         } else {
-          that.fs.copyFileSync(curSource, that.path.join(target, file))
+          fs.copyFileSync(curSource, path.join(target, file))
         }
       })
     }
@@ -72,10 +73,28 @@ class NodeUtil {
    * @param folder - 文件夹
    */
   public rmFolder(folder: string) {
-    if (this.fs.existsSync(folder)) {
+    if (fs.existsSync(folder)) {
       // fs.rm(folder, { recursive: true, force: true })
-      this.fs.rmdirSync(folder, { recursive: true })
+      fs.rmdirSync(folder, { recursive: true })
     }
+  }
+
+  /**
+   * 路径拼接
+   *
+   * @param paths 路径数组
+   */
+  public joinPath(...paths: string[]): string {
+    return path.join(...paths)
+  }
+
+  public cwd(pathname: string): string {
+    return path.dirname(pathname)
+  }
+
+  public absPath(pathname: string): string {
+    const cwdDir = this.cwd(pathname)
+    return path.resolve(path.dirname(cwdDir), pathname)
   }
 }
 

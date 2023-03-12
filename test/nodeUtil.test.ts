@@ -36,4 +36,12 @@ describe("test nodeUtil", () => {
     const nodeUtil = new NodeUtil()
     console.log(nodeUtil)
   })
+
+  it("test joinPath", () => {
+    const nodeUtil = new NodeUtil()
+    const cwd = nodeUtil.cwd(".")
+    const absCwd = nodeUtil.absPath(cwd)
+    console.log("cwd=>", cwd)
+    console.log("absCwd=>", absCwd)
+  })
 })

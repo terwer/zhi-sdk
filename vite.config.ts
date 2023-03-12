@@ -24,6 +24,7 @@ export default defineConfig({
       output: {
         exports: "named",
       },
+      external: ["path", "fs", "siyuan"],
     },
   },
 })

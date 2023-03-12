@@ -40,7 +40,6 @@ import StrUtil from "~/src/common/strUtil"
 import BrowserUtil from "~/src/common/browserUtil"
 import NodeUtil from "~/src/common/nodeUtil"
 import DateUtil from "~/src/common/dateUtil"
-import CjsUtil from "~/src/common/cjsUtil"
 import VersionUtil from "~/src/common/versionUtil"
 import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
 
@@ -116,4 +115,4 @@ class ZhiSdk {
 export default ZhiSdk
 export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, SiyuanUtil }
 export { BlogApi }
-export { Common, BrowserUtil, CjsUtil, DateUtil, NodeUtil, StrUtil, VersionUtil }
+export { Common, BrowserUtil, DateUtil, NodeUtil, StrUtil, VersionUtil }
