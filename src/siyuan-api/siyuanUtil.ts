@@ -23,10 +23,8 @@
  * questions.
  */
 
-import cjsUtil from "~/src/common/cjsUtil"
 import BrowserUtil from "~/src/common/browserUtil"
-
-const path = cjsUtil.safeRequire("path")
+import CjsUtil from "~/src/common/cjsUtil"
 
 /**
  * 思源笔记工具类
@@ -36,11 +34,17 @@ const path = cjsUtil.safeRequire("path")
  * @since 1.0.0
  */
 class SiyuanUtil {
+  private readonly path
+
+  constructor() {
+    this.path = CjsUtil.safeRequire("path")
+  }
+
   /**
    * 思源笔记 window 对象
    */
   public syWin() {
-    return (BrowserUtil.isInBrowser ? window : {}) as any
+    return (BrowserUtil.isInBrowser ? window : undefined) as any
   }
 
   /**
@@ -54,6 +58,9 @@ class SiyuanUtil {
    * 思源笔记 conf 目录
    */
   public SIYUAN_CONF_PATH() {
+    if (!this.syWin()) {
+      throw new Error("Not in siyuan env")
+    }
     return this.syWin()?.siyuan.config.system.confDir
   }
 
@@ -61,6 +68,9 @@ class SiyuanUtil {
    * 思源笔记 data 目录
    */
   public SIYUAN_DATA_PATH() {
+    if (!this.syWin()) {
+      throw new Error("Not in siyuan env")
+    }
     return this.syWin()?.siyuan.config.system.dataDir
   }
 
@@ -68,35 +78,35 @@ class SiyuanUtil {
    * 思源笔记 appearance 目录
    */
   public SIYUAN_APPEARANCE_PATH() {
-    return path.join(this.SIYUAN_CONF_PATH(), "appearance")
+    return this.path.join(this.SIYUAN_CONF_PATH(), "appearance")
   }
 
   /**
    * 思源笔记 themes 目录
    */
   public SIYUAN_THEME_PATH() {
-    return path.join(this.SIYUAN_APPEARANCE_PATH(), "themes")
+    return this.path.join(this.SIYUAN_APPEARANCE_PATH(), "themes")
   }
 
   /**
    * zhi 主题目录
    */
   public ZHI_THEME_PATH() {
-    return path.join(this.SIYUAN_THEME_PATH(), "zhi")
+    return this.path.join(this.SIYUAN_THEME_PATH(), "zhi")
   }
 
   /**
    * zhi 主题构建目录
    */
   public ZHI_THEME_DIST_PATH() {
-    return path.join(this.ZHI_THEME_PATH(), "apps", "theme", "dist")
+    return this.path.join(this.ZHI_THEME_PATH(), "apps", "theme", "dist")
   }
 
   /**
    * zhi 博客构建目录
    */
   public ZHI_BLOG_DIST_PATH() {
-    return path.join(this.SIYUAN_THEME_PATH(), "apps", "blog", "dist")
+    return this.path.join(this.SIYUAN_THEME_PATH(), "apps", "blog", "dist")
   }
 
   /**
@@ -105,7 +115,7 @@ class SiyuanUtil {
   getCrossPlatformAppDataFolder = () => {
     let configFilePath
     if (this.syProcess()?.platform === "darwin") {
-      configFilePath = path.join(this.syProcess()?.env.HOME, "/Library/Application Support")
+      configFilePath = this.path.join(this.syProcess()?.env.HOME, "/Library/Application Support")
     } else if (this.syProcess()?.platform === "win32") {
       // Roaming包含在APPDATA中了
       configFilePath = this.syProcess()?.env.APPDATA
