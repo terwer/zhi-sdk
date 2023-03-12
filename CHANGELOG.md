@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/terwer/zhi-sdk/compare/v1.0.7...v1.0.8) (2023-03-12)
+
+
+### Bug Fixes
+
+* add device util ([5c60d81](https://github.com/terwer/zhi-sdk/commit/5c60d8130910776e0b792bc59a3cddc8362594e2))
+
 ## [1.0.7](https://github.com/terwer/zhi-sdk/compare/v1.0.6...v1.0.7) (2023-03-12)
 
 ### Bug Fixes
