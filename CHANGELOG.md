@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.9](https://github.com/terwer/zhi-sdk/compare/v1.0.8...v1.0.9) (2023-03-14)
+
+
+### Bug Fixes
+
+* add electron utils ([702c954](https://github.com/terwer/zhi-sdk/commit/702c954445db5132354a41870d922983bd185216))
+
+
+### Miscellaneous
+
+* **deps-dev:** Bump vitepress from 1.0.0-alpha.52 to 1.0.0-alpha.56 ([681e70d](https://github.com/terwer/zhi-sdk/commit/681e70dc85051acbe88bce0bcaa11b447ab37081))
+
 ## [1.0.8](https://github.com/terwer/zhi-sdk/compare/v1.0.7...v1.0.8) (2023-03-12)
 
 
