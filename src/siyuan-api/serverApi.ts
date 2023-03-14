@@ -23,6 +23,8 @@
  * questions.
  */
 
+import { version } from "~/package.json"
+
 /**
  * 思源笔记服务端API
  *
@@ -37,7 +39,7 @@ class SiyuanServerApi {
   public readonly VERSION
 
   constructor() {
-    this.VERSION = "1.0.0"
+    this.VERSION = version
   }
 }
 

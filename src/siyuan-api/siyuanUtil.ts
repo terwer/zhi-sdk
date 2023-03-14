@@ -24,30 +24,23 @@
  */
 
 import BrowserUtil from "~/src/common/browserUtil"
-import path from "path"
 
 /**
- * 警告⚠️：请勿在非Node环境调用此文件中的任何方法
  *
  * 思源笔记工具类
  *
  * @public
- * @node
  * @author terwer
  * @since 1.0.0
  */
 class SiyuanUtil {
   /**
-   * 思源笔记或者思源笔记新窗口，等价于Electron环境
-   */
-  public isInSiyuanOrSiyuanNewWin = () => {
-    return BrowserUtil.isInBrowser
-  }
-
-  /**
    * 思源笔记Iframe挂件环境
    */
   public isInSiyuanWidget = () => {
+    if (typeof window === "undefined") {
+      return false
+    }
     return (
       window.frameElement != null &&
       window.frameElement.parentElement != null &&
@@ -60,113 +53,36 @@ class SiyuanUtil {
    * 思源笔记新窗口
    */
   public isInSiyuanNewWin = () => {
+    if (typeof window === "undefined") {
+      return false
+    }
     return typeof (window as any).terwer !== "undefined"
   }
+
   /**
    * 思源笔记 window 对象
    */
-  public syWin() {
+  public siyuanWindow() {
     let win
     if (this.isInSiyuanWidget()) {
       win = parent.window
     } else {
       if (this.isInSiyuanNewWin()) {
         win = window
+      } else if (typeof window !== "undefined") {
+        win = window
+      } else {
+        win = undefined
       }
-      win = window
     }
-    return (win ?? undefined) as any
+    return win as any
   }
 
   /**
-   * 思源笔记 process 对象
+   * 思源笔记或者思源笔记新窗口，等价于Electron环境
    */
-  public syProcess() {
-    return (BrowserUtil.isInBrowser ? window.process : process) as any
-  }
-
-  /**
-   * 引入依赖
-   *
-   * @param libpath - 依赖全路径
-   */
-  public requireLib = (libpath: string) => {
-    const syWin = this.syWin()
-    if (!this.syWin()) {
-      throw new Error("Not in siyuan env")
-    }
-    return syWin.require(libpath)
-  }
-
-  /**
-   * 思源笔记 conf 目录
-   */
-  public SIYUAN_CONF_PATH() {
-    if (!this.syWin()) {
-      throw new Error("Not in siyuan env")
-    }
-    return this.syWin()?.siyuan.config.system.confDir
-  }
-
-  /**
-   * 思源笔记 data 目录
-   */
-  public SIYUAN_DATA_PATH() {
-    if (!this.syWin()) {
-      throw new Error("Not in siyuan env")
-    }
-    return this.syWin()?.siyuan.config.system.dataDir
-  }
-
-  /**
-   * 思源笔记 appearance 目录
-   */
-  public SIYUAN_APPEARANCE_PATH() {
-    return path.join(this.SIYUAN_CONF_PATH(), "appearance")
-  }
-
-  /**
-   * 思源笔记 themes 目录
-   */
-  public SIYUAN_THEME_PATH() {
-    return path.join(this.SIYUAN_APPEARANCE_PATH(), "themes")
-  }
-
-  /**
-   * zhi 主题目录
-   */
-  public ZHI_THEME_PATH() {
-    return path.join(this.SIYUAN_THEME_PATH(), "zhi")
-  }
-
-  /**
-   * zhi 主题构建目录
-   */
-  public ZHI_THEME_DIST_PATH() {
-    return path.join(this.ZHI_THEME_PATH(), "apps", "theme", "dist")
-  }
-
-  /**
-   * zhi 博客构建目录
-   */
-  public ZHI_BLOG_DIST_PATH() {
-    return path.join(this.SIYUAN_THEME_PATH(), "apps", "blog", "dist")
-  }
-
-  /**
-   * 获取跨平台的用户配置文件夹
-   */
-  getCrossPlatformAppDataFolder = () => {
-    let configFilePath
-    if (this.syProcess()?.platform === "darwin") {
-      configFilePath = path.join(this.syProcess()?.env.HOME, "/Library/Application Support")
-    } else if (this.syProcess()?.platform === "win32") {
-      // Roaming包含在APPDATA中了
-      configFilePath = this.syProcess()?.env.APPDATA
-    } else if (this.syProcess()?.platform === "linux") {
-      configFilePath = this.syProcess()?.env.HOME
-    }
-    return configFilePath
+  public isInSiyuanOrSiyuanNewWin = () => {
+    return BrowserUtil.isElectron
   }
 }
 

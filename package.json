@@ -61,7 +61,6 @@
   },
   "dependencies": {
     "compare-versions": "6.0.0-rc.1",
-    "siyuan": "^0.3.12",
     "zhi-log": "^1.5.5"
   },
   "repository": "terwer/zhi-sdk",

@@ -38,7 +38,7 @@ import SiyuanClientApi from "~/src/siyuan-api/clientApi"
 import Common from "~/src/common"
 import StrUtil from "~/src/common/strUtil"
 import BrowserUtil from "~/src/common/browserUtil"
-import NodeUtil from "~/src/common/nodeUtil"
+import ElectronUtil from "~/src/common/electronUtil"
 import DateUtil from "~/src/common/dateUtil"
 import VersionUtil from "~/src/common/versionUtil"
 import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
@@ -117,4 +117,4 @@ class ZhiSdk {
 export default ZhiSdk
 export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, SiyuanUtil }
 export { BlogApi }
-export { Common, BrowserUtil, DateUtil, NodeUtil, StrUtil, VersionUtil, DeviceUtil, DeviceType }
+export { Common, BrowserUtil, DateUtil, ElectronUtil, StrUtil, VersionUtil, DeviceUtil, DeviceType }
