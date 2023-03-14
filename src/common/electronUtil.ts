@@ -25,7 +25,7 @@
 
 import BrowserUtil from "~/src/common/browserUtil"
 import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import { NodeUtil } from "~/typings"
+import NodeUtil from "~/src/common/nodeUtil"
 
 /**
  * 警告⚠️：请勿在非Electron环境调用此文件中的任何方法
