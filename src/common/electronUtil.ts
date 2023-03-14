@@ -56,6 +56,8 @@ class ElectronUtil implements NodeUtil {
     return syWin.require(libpath)
   }
 
+  // ------------------------------------------------------------------------------------------------------
+
   /**
    *
    * 可以使用Node.js内置的fs模块中的`copyFileSync`或者`copyFile`方法来复制文件夹。不过需要注意，这两个方法只能复制单个文件，如果想要复制整个文件夹，需要自己编写递归函数实现。
@@ -133,6 +135,8 @@ class ElectronUtil implements NodeUtil {
     return path.resolve(path.dirname(cwdDir), pathname)
   }
 
+  // -----------------------------------------------------------------------------------------------
+
   /**
    * 思源笔记 process 对象
    */
@@ -143,7 +147,7 @@ class ElectronUtil implements NodeUtil {
   /**
    * 思源笔记 conf 目录
    */
-  public SIYUAN_CONF_PATH() {
+  public siyuanConfPath() {
     const syWin = this.siyuanUtil.siyuanWindow()
     if (!syWin) {
       throw new Error("Not in siyuan env")
@@ -154,7 +158,7 @@ class ElectronUtil implements NodeUtil {
   /**
    * 思源笔记 data 目录
    */
-  public SIYUAN_DATA_PATH() {
+  public siyuanDataPath() {
     const syWin = this.siyuanUtil.siyuanWindow()
     if (!syWin) {
       throw new Error("Not in siyuan env")
@@ -165,41 +169,49 @@ class ElectronUtil implements NodeUtil {
   /**
    * 思源笔记 appearance 目录
    */
-  public SIYUAN_APPEARANCE_PATH() {
+  public siyuanAppearancePath() {
     const path = this.requireLib("path")
-    return path.join(this.SIYUAN_CONF_PATH(), "appearance")
+    return path.join(this.siyuanConfPath(), "appearance")
   }
 
   /**
    * 思源笔记 themes 目录
    */
-  public SIYUAN_THEME_PATH() {
+  public siyuanThemePath() {
     const path = this.requireLib("path")
-    return path.join(this.SIYUAN_APPEARANCE_PATH(), "themes")
+    return path.join(this.siyuanAppearancePath(), "themes")
   }
 
   /**
    * zhi 主题目录
    */
-  public ZHI_THEME_PATH() {
+  public zhiThemePath() {
     const path = this.requireLib("path")
-    return path.join(this.SIYUAN_THEME_PATH(), "zhi")
+    return path.join(this.siyuanThemePath(), "zhi")
   }
 
   /**
    * zhi 主题构建目录
    */
-  public ZHI_THEME_DIST_PATH() {
+  public zhiThemeDistPath() {
     const path = this.requireLib("path")
-    return path.join(this.ZHI_THEME_PATH(), "apps", "theme", "dist")
+    return path.join(this.zhiThemePath(), "apps", "theme", "dist")
   }
 
   /**
    * zhi 博客构建目录
    */
-  public ZHI_BLOG_DIST_PATH() {
+  public zhiBlogDistPath() {
     const path = this.requireLib("path")
-    return path.join(this.SIYUAN_THEME_PATH(), "apps", "blog", "dist")
+    return path.join(this.siyuanThemePath(), "apps", "blog", "dist")
+  }
+
+  /**
+   * zhi-mini 目录
+   */
+  public zhiMiniPath() {
+    const path = this.requireLib("path")
+    return path.join(this.siyuanThemePath(), "zhi-mini")
   }
 
   /**
