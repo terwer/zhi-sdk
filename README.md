@@ -40,11 +40,11 @@ console.log(fmsg)
   - zhi-env
   - zhi-log
   - zhi-common
-    - strUtil
-    - dateUtil
-    - cjsUtil
-    - nodeUtil
     - browserUtil
+    - dateUtil
+    - deviceUtil
+    - electronUtil
+    - strUtil
     - versionUtil
   - zhi-core
   - zhi-ui
