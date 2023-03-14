@@ -24,23 +24,23 @@
  */
 
 import { describe, it } from "vitest"
-import NodeUtil from "~/src/common/nodeUtil"
+import ElectronUtil from "~/src/common/electronUtil"
 
 describe("test nodeUtil", () => {
   it("test copyFolderSync", () => {
-    const nodeUtil = new NodeUtil()
-    console.log(nodeUtil)
+    const electronUtil = new ElectronUtil()
+    console.log(electronUtil)
   })
 
   it("test rmFolder", () => {
-    const nodeUtil = new NodeUtil()
-    console.log(nodeUtil)
+    const electronUtil = new ElectronUtil()
+    console.log(electronUtil)
   })
 
   it("test joinPath", () => {
-    const nodeUtil = new NodeUtil()
-    const cwd = nodeUtil.dirname(".")
-    const absCwd = nodeUtil.absPath(cwd)
+    const electronUtil = new ElectronUtil()
+    const cwd = electronUtil.dirname(".")
+    const absCwd = electronUtil.absPath(cwd)
     console.log("cwd=>", cwd)
     console.log("absCwd=>", absCwd)
   })

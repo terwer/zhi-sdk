@@ -23,9 +23,6 @@
  * questions.
  */
 
-import fs from "fs"
-import path from "path"
-
 /**
  * 警告⚠️：请勿在非Node环境调用此文件中的任何方法
  *
@@ -35,7 +32,7 @@ import path from "path"
  * @node
 
  */
-class NodeUtil {
+interface NodeUtil {
   /**
    *
    * 可以使用Node.js内置的fs模块中的`copyFileSync`或者`copyFile`方法来复制文件夹。不过需要注意，这两个方法只能复制单个文件，如果想要复制整个文件夹，需要自己编写递归函数实现。
@@ -46,66 +43,35 @@ class NodeUtil {
    * @author terwer
    * @since 1.0.0
    */
-  copyFolderSync(source: string, target: string): void {
-    const that = this
-
-    if (!fs.existsSync(target)) {
-      fs.mkdirSync(target)
-    }
-
-    if (fs.lstatSync(source).isDirectory()) {
-      const files: any[] = fs.readdirSync(source)
-
-      files.forEach(function (file: any) {
-        const curSource = path.join(source, file)
-        if (fs.lstatSync(curSource).isDirectory()) {
-          that.copyFolderSync(curSource, path.join(target, file))
-        } else {
-          fs.copyFileSync(curSource, path.join(target, file))
-        }
-      })
-    }
-  }
+  copyFolderSync(source: string, target: string): void
 
   /**
    * 删除文件夹
    *
    * @param folder - 文件夹
    */
-  public rmFolder(folder: string) {
-    if (fs.existsSync(folder)) {
-      // fs.rm(folder, { recursive: true, force: true })
-      fs.rmdirSync(folder, { recursive: true })
-    }
-  }
+  rmFolder(folder: string): void
 
   /**
    * 路径拼接
    *
    * @param paths - 路径数组
    */
-  public joinPath(...paths: string[]): string {
-    return path.join(...paths)
-  }
+  joinPath(...paths: string[]): string
 
   /**
    * 获取相对路径
    *
    * @param pathname - 路径名称
    */
-  public dirname(pathname: string): string {
-    return path.dirname(pathname)
-  }
+  dirname(pathname: string): string
 
   /**
    * 获取绝对路径
    *
    * @param pathname - 路径名称
    */
-  public absPath(pathname: string): string {
-    const cwdDir = this.dirname(pathname)
-    return path.resolve(path.dirname(cwdDir), pathname)
-  }
+  absPath(pathname: string): string
 }
 
 export default NodeUtil

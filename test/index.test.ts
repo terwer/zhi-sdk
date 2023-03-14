@@ -47,11 +47,12 @@ describe("test zhi-sdk", () => {
 
     const zhiSdk = new ZhiSdk(env)
     const siyuanApi = zhiSdk.siyuanApi
+    const common = zhiSdk.common
     console.log("siyuanApi.serverApi=>", siyuanApi.serverApi.VERSION)
     console.log("siyuanApi.clientApi=>", siyuanApi.clientApi.VERSION)
     console.log(
-      "siyuanApi.siyuanUtil.getCrossPlatformAppDataFolder=>",
-      siyuanApi.siyuanUtil.getCrossPlatformAppDataFolder()
+      "common.electronUtil.getCrossPlatformAppDataFolder=>",
+      common.electronUtil.getCrossPlatformAppDataFolder()
     )
   })
 

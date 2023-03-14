@@ -25,10 +25,10 @@
 
 import StrUtil from "~/src/common/strUtil"
 import BrowserUtil from "~/src/common/browserUtil"
-import NodeUtil from "~/src/common/nodeUtil"
 import DateUtil from "~/src/common/dateUtil"
 import VersionUtil from "~/src/common/versionUtil"
 import DeviceUtil from "~/src/common/deviceUtil"
+import ElectronUtil from "~/src/common/electronUtil"
 
 /**
  * 通用工具类
@@ -49,9 +49,9 @@ class Common {
   public readonly dateUtil
 
   /**
-   * NodeJS内部工具类
+   * electron内部工具类
    */
-  public readonly nodeUtil
+  public readonly electronUtil
 
   /**
    * 浏览器工具类
@@ -71,7 +71,7 @@ class Common {
   constructor() {
     this.strUtil = new StrUtil()
     this.dateUtil = new DateUtil()
-    this.nodeUtil = new NodeUtil()
+    this.electronUtil = new ElectronUtil()
     this.browserUtil = BrowserUtil
     this.versionUtil = new VersionUtil()
     this.deviceUtil = DeviceUtil

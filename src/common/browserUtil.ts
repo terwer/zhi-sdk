@@ -37,6 +37,17 @@ class BrowserUtil {
   public static isInBrowser = typeof window !== "undefined"
 
   /**
+   * 是否是Electron环境
+   */
+  public static isElectron = () => {
+    if (!BrowserUtil.isInBrowser || !window.navigator || !window.navigator.userAgent) {
+      return false
+    }
+
+    return /Electron/.test(window.navigator.userAgent)
+  }
+
+  /**
    * 检测是否运行在Chrome插件中
    */
   public static isInChromeExtension() {
@@ -44,6 +55,107 @@ class BrowserUtil {
       return false
     }
     return window.location.href.indexOf("chrome-extension://") > -1
+  }
+
+  /**
+   * 获取url参数
+   *
+   * @param sParam - 参数
+   */
+  public getQueryString = (sParam: string): string => {
+    if (!BrowserUtil.isInBrowser) {
+      return ""
+    }
+    const sPageURL = window.location.search.substring(1)
+    const sURLVariables = sPageURL.split("&")
+
+    for (let i = 0; i < sURLVariables.length; i++) {
+      const sParameterName = sURLVariables[i].split("=")
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1]
+      }
+    }
+
+    return ""
+  }
+
+  /**
+   * 替换 URL 的参数
+   * @param url - 链接地址
+   * @param paramName - 参数名
+   * @param paramValue - 参数值
+   */
+  public static replaceUrlParam = (url: string, paramName: string, paramValue: string): string => {
+    if (paramValue == null) {
+      paramValue = ""
+    }
+    const pattern = new RegExp("\\b(" + paramName + "=).*?(&|#|$)")
+    if (url.search(pattern) >= 0) {
+      return url.replace(pattern, "$1" + paramValue + "$2")
+    }
+    url = url.replace(/[?#]$/, "")
+    return url + (url.indexOf("?") > 0 ? "&" : "?") + paramName + "=" + paramValue
+  }
+
+  /**
+   * 设置url参数
+   * @param urlstring - url
+   * @param key - key
+   * @param value - value
+   */
+  public static setUrlParameter = (urlstring: string, key: string, value: string): string => {
+    if (!BrowserUtil.isInBrowser) {
+      return ""
+    }
+    // 已经有参数了，不重复添加
+    if (urlstring.includes(key)) {
+      return BrowserUtil.replaceUrlParam(urlstring, key, value)
+    }
+    urlstring += (urlstring.match(/[?]/g) != null ? "&" : "?") + key + "=" + value
+    return urlstring
+  }
+
+  /**
+   * 重新加载指定tab
+   *
+   * @param tabname - tabname
+   */
+  public static reloadTabPage = (tabname: string): void => {
+    setTimeout(function () {
+      if (BrowserUtil.isInBrowser) {
+        const url = window.location.href
+        window.location.href = BrowserUtil.setUrlParameter(url, "tab", tabname)
+      }
+    }, 200)
+  }
+
+  /**
+   * 刷新当前tab页面
+   */
+  public static reloadPage = (): void => {
+    setTimeout(function () {
+      if (BrowserUtil.isInBrowser) {
+        window.location.reload()
+      }
+    }, 200)
+  }
+
+  /**
+   * 刷新当前tab页面
+   *
+   * @param msg - 消息提示
+   * @param cb - 回调
+   */
+  public static reloadPageWithMessageCallback = (msg: string, cb: any): void => {
+    if (cb) {
+      cb()
+    }
+
+    setTimeout(function () {
+      if (BrowserUtil.isInBrowser) {
+        window.location.reload()
+      }
+    }, 200)
   }
 }
 
