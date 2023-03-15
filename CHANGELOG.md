@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.11](https://github.com/terwer/zhi-sdk/compare/v1.0.10...v1.0.11) (2023-03-15)
+
+
+### Miscellaneous
+
+* **deps-dev:** Bump vitepress from 1.0.0-alpha.56 to 1.0.0-alpha.58 ([6e94ff4](https://github.com/terwer/zhi-sdk/commit/6e94ff495e5a74318040a42d32adc3be2d32873c))
+
 ## [1.0.10](https://github.com/terwer/zhi-sdk/compare/v1.0.9...v1.0.10) (2023-03-14)
 
 
