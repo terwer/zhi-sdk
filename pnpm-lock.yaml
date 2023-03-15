@@ -23,11 +23,11 @@ specifiers:
   vitepress-plugin-autobar: ^1.0.8
   vitest: ^0.29.2
   vue-eslint-parser: ^9.1.0
-  zhi-log: ^1.5.5
+  zhi-log: ^1.5.6
 
 dependencies:
   compare-versions: 6.0.0-rc.1
-  zhi-log: 1.5.5
+  zhi-log: 1.5.6
 
 devDependencies:
   '@microsoft/api-documenter': 7.21.5_@types+node@16.18.14
@@ -6533,15 +6533,15 @@ packages:
       commander: 9.5.0
     dev: true
 
-  /zhi-env/1.8.2:
-    resolution: {integrity: sha512-oMQX540mRNUa7w5IfvZSn06GLsNSK+2WcCBedpHRiA13k755L+1HlL9rAOReWg1xx2n4/2JelpQmiXIv/oHAKg==}
+  /zhi-env/1.9.0:
+    resolution: {integrity: sha512-U8jMyLJjAVqXuM+rotmLz4t8U3fZjKKP3Iu3ApHzgX/qILcVZ/8EALV6sEvpYeyF9yg/cQUZgXQ3kuOWfGYddw==}
     dev: false
 
-  /zhi-log/1.5.5:
-    resolution: {integrity: sha512-5/VzI4Jaj106veUc7rQkYdGe9wYI+VLjRpAxPamPPOHqhyiRFMe+lh77xa0TUixq1OLjkHRBu7yfy0FpDrcq+Q==}
+  /zhi-log/1.5.6:
+    resolution: {integrity: sha512-f/tIRFx0xxDbHhkrB5OSyZZEYNbcgzGxdn7MlnB/TdmWlOyxiCooG7/dgUXnL5MixZqw3tdV43M/krJjOONmdQ==}
     dependencies:
       callsites: 4.0.0
       loglevel: 1.8.1
       loglevel-plugin-prefix: 0.8.4
-      zhi-env: 1.8.2
+      zhi-env: 1.9.0
     dev: false
