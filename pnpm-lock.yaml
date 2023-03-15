@@ -19,15 +19,15 @@ specifiers:
   vite: ^4.1.4
   vite-plugin-dts: ^2.1.0
   vite-plugin-eslint: ^1.8.1
-  vitepress: 1.0.0-alpha.56
+  vitepress: 1.0.0-alpha.58
   vitepress-plugin-autobar: ^1.0.8
   vitest: ^0.29.2
   vue-eslint-parser: ^9.1.0
-  zhi-log: ^1.5.5
+  zhi-log: ^1.5.6
 
 dependencies:
   compare-versions: 6.0.0-rc.1
-  zhi-log: 1.5.5
+  zhi-log: 1.5.6
 
 devDependencies:
   '@microsoft/api-documenter': 7.21.5_@types+node@16.18.14
@@ -47,7 +47,7 @@ devDependencies:
   vite: 4.1.4_@types+node@16.18.14
   vite-plugin-dts: 2.1.0_palfitq7jg67mg4usbzuzyleke
   vite-plugin-eslint: 1.8.1_eslint@8.35.0+vite@4.1.4
-  vitepress: 1.0.0-alpha.56_@types+node@16.18.14
+  vitepress: 1.0.0-alpha.58_@types+node@16.18.14
   vitepress-plugin-autobar: 1.0.8
   vitest: 0.29.2
   vue-eslint-parser: 9.1.0_eslint@8.35.0
@@ -6221,8 +6221,8 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /vitepress/1.0.0-alpha.56_@types+node@16.18.14:
-    resolution: {integrity: sha512-FNoanHwmgWn4xZZcc8D34VKWcEs0F7e39xiVUahI7VzzI4VeiB+R/euYtPIUcTxIC2pRDhclw7/DO0JFYSGIpw==}
+  /vitepress/1.0.0-alpha.58_@types+node@16.18.14:
+    resolution: {integrity: sha512-aENSAiE2uKMoQPwBTELY8Nig5qSWrmAl+MgsO3l/TE8At6kXii+2rseEId/bVfT700JeucYdqtCgWxu+LwpYIw==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.3
@@ -6533,15 +6533,15 @@ packages:
       commander: 9.5.0
     dev: true
 
-  /zhi-env/1.8.2:
-    resolution: {integrity: sha512-oMQX540mRNUa7w5IfvZSn06GLsNSK+2WcCBedpHRiA13k755L+1HlL9rAOReWg1xx2n4/2JelpQmiXIv/oHAKg==}
+  /zhi-env/1.9.0:
+    resolution: {integrity: sha512-U8jMyLJjAVqXuM+rotmLz4t8U3fZjKKP3Iu3ApHzgX/qILcVZ/8EALV6sEvpYeyF9yg/cQUZgXQ3kuOWfGYddw==}
     dev: false
 
-  /zhi-log/1.5.5:
-    resolution: {integrity: sha512-5/VzI4Jaj106veUc7rQkYdGe9wYI+VLjRpAxPamPPOHqhyiRFMe+lh77xa0TUixq1OLjkHRBu7yfy0FpDrcq+Q==}
+  /zhi-log/1.5.6:
+    resolution: {integrity: sha512-f/tIRFx0xxDbHhkrB5OSyZZEYNbcgzGxdn7MlnB/TdmWlOyxiCooG7/dgUXnL5MixZqw3tdV43M/krJjOONmdQ==}
     dependencies:
       callsites: 4.0.0
       loglevel: 1.8.1
       loglevel-plugin-prefix: 0.8.4
-      zhi-env: 1.8.2
+      zhi-env: 1.9.0
     dev: false

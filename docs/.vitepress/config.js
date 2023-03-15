@@ -12,7 +12,7 @@ export default {
     // 添加导航栏
     nav: [
       {
-        text: "zhi-sdk",
+        text: "Home",
         link: "/",
         target: "_self",
       },
