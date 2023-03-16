@@ -13,9 +13,14 @@ pnpm add zhi-sdk
 
 ```ts
 import ZhiSdk from "zhi-sdk"
+import Env from "zhi-env"
 
 // init zhiSdk
 const zhiSdk = new ZhiSdk()
+
+// init zhiSdk with env
+const env = new Env(import.meta.env)
+const zhiSdk = new ZhiSdk(env)
 
 // siyuanAPI
 const siyuanApi = zhiSdk.siyuanApi
@@ -30,6 +35,13 @@ console.log(blogApi.VERSION)
 const msg = "message"
 const fmsg = zhiSdk.common.strUtil.f("This a {0}", msg)
 console.log(fmsg)
+```
+
+## Deps
+
+```
+├── zhi-log
+├── compare-versions
 ```
 
 ## Architecture
