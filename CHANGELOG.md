@@ -2,19 +2,17 @@
 
 ## [1.2.0](https://github.com/terwer/zhi-sdk/compare/v1.1.0...v1.2.0) (2023-03-20)
 
-
 ### Features
 
-* allow custom config ([22659d9](https://github.com/terwer/zhi-sdk/commit/22659d9347575c221390c865ee96f49a61640e92))
+- allow custom config ([22659d9](https://github.com/terwer/zhi-sdk/commit/22659d9347575c221390c865ee96f49a61640e92))
 
 ## [1.1.0](https://github.com/terwer/zhi-sdk/compare/v1.0.12...v1.1.0) (2023-03-20)
 
-
 ### Features
 
-* Add blog api types ([64383ad](https://github.com/terwer/zhi-sdk/commit/64383adaaa8f4f5b699b007149c27c2428667d39))
-* Add siyuan api adaptor ([395badb](https://github.com/terwer/zhi-sdk/commit/395badb342fa1058fdd4d7215ba5e6a2f0c6729f))
-* Add siyuan server basic api ([8b6bb43](https://github.com/terwer/zhi-sdk/commit/8b6bb4345e6cbc6bde1e8c8db94ed880655ad527))
+- Add blog api types ([64383ad](https://github.com/terwer/zhi-sdk/commit/64383adaaa8f4f5b699b007149c27c2428667d39))
+- Add siyuan api adaptor ([395badb](https://github.com/terwer/zhi-sdk/commit/395badb342fa1058fdd4d7215ba5e6a2f0c6729f))
+- Add siyuan server basic api ([8b6bb43](https://github.com/terwer/zhi-sdk/commit/8b6bb4345e6cbc6bde1e8c8db94ed880655ad527))
 
 ## [1.0.12](https://github.com/terwer/zhi-sdk/compare/v1.0.11...v1.0.12) (2023-03-16)
 
