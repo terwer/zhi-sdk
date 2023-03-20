@@ -23,53 +23,23 @@
  * questions.
  */
 
-import IBlogApi from "~/src/blog-api/IBlogApi"
+import { describe, it } from "vitest"
 import Env from "zhi-env"
+import BlogApi from "~/src/blog-api/BlogApi"
 import BLOG_API_TYPE_CONSTANTS from "~/src/blog-api/constants/blogApiTypeConstants"
-import SiYuanApiAdaptor from "~/src/blog-api/adaptor/siyuan/siYuanApiAdaptor"
-import Post from "~/src/blog-api/models/post"
-import UserBlog from "~/src/blog-api/models/userBlog"
 
-/**
- * 博客API
- *
- * @public
- * @author terwer
- * @since 1.0.0
- */
-class BlogApi implements IBlogApi {
-  private readonly type: string
-  private readonly apiAdaptor: IBlogApi
+describe("test blogApi", () => {
+  it("test getRecentPosts", async () => {
+    const env = new Env(import.meta.env)
+    const blogApi = new BlogApi(BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN, env)
+    const result = await blogApi.getRecentPosts(10)
+    console.log(result)
+  })
 
-  /**
-   * 博客API版本号
-   */
-  public readonly VERSION
-
-  constructor(type: string, env: Env) {
-    this.VERSION = "1.0.0"
-
-    this.type = type
-    switch (this.type) {
-      case BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN:
-        this.apiAdaptor = new SiYuanApiAdaptor(env)
-        break
-      default:
-        throw new Error("未找到接口适配器，请检查参数")
-    }
-  }
-
-  async getRecentPosts(numOfPosts: number, page?: number, keyword?: string): Promise<Array<Post>> {
-    return this.apiAdaptor.getRecentPosts(numOfPosts, page, keyword)
-  }
-
-  async getUsersBlogs(): Promise<Array<UserBlog>> {
-    return this.apiAdaptor.getUsersBlogs()
-  }
-
-  getPost(postid: string, useSlug?: boolean): Promise<Post> {
-    return this.apiAdaptor.getPost(postid, useSlug)
-  }
-}
-
-export default BlogApi
+  it("test getPost", async () => {
+    const env = new Env(import.meta.env)
+    const blogApi = new BlogApi(BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN, env)
+    const result = await blogApi.getPost("20230319123111-dt513rg")
+    console.log(result)
+  })
+})

@@ -29,6 +29,8 @@ import DateUtil from "~/src/common/dateUtil"
 import VersionUtil from "~/src/common/versionUtil"
 import DeviceUtil from "~/src/common/deviceUtil"
 import ElectronUtil from "~/src/common/electronUtil"
+import MarkdownUtil from "~/src/common/markdownUtil"
+import HtmlUtil from "~/src/common/htmlUtil"
 
 /**
  * 通用工具类
@@ -68,6 +70,16 @@ class Common {
    */
   public readonly deviceUtil
 
+  /**
+   * Markdown工具类
+   */
+  public readonly markdownUtil
+
+  /**
+   * HTML 工具类
+   */
+  public readonly htmlUtil
+
   constructor() {
     this.strUtil = new StrUtil()
     this.dateUtil = new DateUtil()
@@ -75,6 +87,8 @@ class Common {
     this.browserUtil = BrowserUtil
     this.versionUtil = new VersionUtil()
     this.deviceUtil = DeviceUtil
+    this.markdownUtil = new MarkdownUtil()
+    this.htmlUtil = new HtmlUtil()
   }
 }
 

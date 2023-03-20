@@ -40,6 +40,7 @@
     "@microsoft/api-documenter": "^7.21.5",
     "@microsoft/api-extractor": "^7.34.4",
     "@types/node": "16",
+    "@types/showdown": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "@vitest/coverage-c8": "^0.29.2",
@@ -62,6 +63,7 @@
   },
   "dependencies": {
     "compare-versions": "6.0.0-rc.1",
+    "showdown": "^2.1.0",
     "zhi-log": "^1.6.1"
   },
   "repository": "terwer/zhi-sdk",
