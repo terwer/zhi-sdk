@@ -51,6 +51,7 @@ import NodeUtil from "~/src/common/nodeUtil"
 import Post from "~/src/blog-api/models/post"
 import UserBlog from "~/src/blog-api/models/userBlog"
 import { MarkdownRenderTypeEnum } from "~/src/common/markdownUtil"
+import SiyuanConfig from "~/src/siyuan-api/siyuanConfig"
 
 /**
  * SDK操作统一入口，建议大部分操作使用此工具类实现
@@ -92,8 +93,9 @@ class ZhiSdk {
   /**
    * 构造 zhi-sdk 对象
    * @param env - 可选，环境变量对象
+   * @param cfg - cfg，优先级高
    */
-  constructor(env?: Env) {
+  constructor(env?: Env, cfg?: any) {
     this.env = env ?? new Env({})
     this.logger = LogFactory.defaultLogger(this.env, SdkConfig.LOG_STACK_SIZE)
     this.common = new Common()
@@ -101,7 +103,7 @@ class ZhiSdk {
     this.siyuanApi = new SiyuanApi()
 
     const type = this.env.getEnv("VITE_DEFAULT_TYPE") ?? BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN
-    this.blogApi = new BlogApi(type, this.env)
+    this.blogApi = new BlogApi(type, this.env, cfg)
   }
 
   /**
@@ -123,7 +125,7 @@ class ZhiSdk {
 }
 
 export default ZhiSdk
-export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, SiyuanUtil }
+export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, SiyuanUtil, type SiyuanConfig }
 export { type IBlogApi, BlogApi, Post, UserBlog }
 export {
   Common,

@@ -26,6 +26,7 @@
 /**
  * 思源笔记配置
  *
+ * @public
  * @author terwer
  */
 class SiYuanConfig {
