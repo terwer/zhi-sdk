@@ -33,6 +33,7 @@ import BLOG_API_TYPE_CONSTANTS from "~/src/blog-api/constants/blogApiTypeConstan
 import Post from "~/src/blog-api/models/post"
 import MarkdownUtil from "~/src/common/markdownUtil"
 import HtmlUtil from "~/src/common/htmlUtil"
+import SiyuanConfig from "~/src/siyuan-api/siyuanConfig"
 
 /**
  * 思源笔记 API 适配器
@@ -47,11 +48,11 @@ class SiYuanApiAdaptor implements IBlogApi {
   private readonly markdownUtil
   private readonly htmlUtil
 
-  constructor(env: Env) {
+  constructor(env: Env, cfg: SiyuanConfig) {
     this.env = env
     this.logger = LogFactory.defaultLogger(this.env, SdkConfig.LOG_STACK_SIZE)
 
-    const siyuanApi = new SiyuanApi(env)
+    const siyuanApi = new SiyuanApi(env, cfg)
     this.siyuanServerApi = siyuanApi.serverApi
     this.markdownUtil = new MarkdownUtil()
     this.htmlUtil = new HtmlUtil()

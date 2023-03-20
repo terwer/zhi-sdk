@@ -27,6 +27,7 @@ import { version } from "~/package.json"
 import LogFactory, { DefaultLogger } from "zhi-log"
 import Env from "zhi-env"
 import SdkConfig from "~/src/SdkConfig"
+import SiyuanConfig from "~/src/siyuan-api/siyuanConfig"
 
 /**
  * 思源笔记服务端API v2.0.27
@@ -41,13 +42,29 @@ class SiyuanServerApi {
    * 思源笔记服务端API版本号
    */
   public readonly VERSION
-  private readonly env: Env
   private readonly logger: DefaultLogger
 
-  constructor(env?: Env) {
-    this.env = env ?? new Env({})
+  private readonly siyuanConfig
+
+  /**
+   * 初始化思源服务端 API
+   *
+   * @param env - 环境变量
+   * @param siyuanConfig - 配置项
+   */
+  constructor(env?: Env, siyuanConfig?: SiyuanConfig) {
+    const envVar = env ?? new Env({})
     this.VERSION = version
-    this.logger = LogFactory.defaultLogger(this.env, SdkConfig.LOG_STACK_SIZE)
+    this.logger = LogFactory.defaultLogger(envVar, SdkConfig.LOG_STACK_SIZE)
+
+    if (siyuanConfig) {
+      this.siyuanConfig = siyuanConfig
+    } else {
+      const siyuanApiUrl = envVar.getStringEnv("VITE_SIYUAN_API_URL")
+      const siyuanApiToken = envVar.getStringEnv("VITE_SIYUAN_AUTH_TOKEN")
+      const middlewareUrl = envVar.getStringEnv("VITE_MIDDLEWARE_URL")
+      this.siyuanConfig = new SiyuanConfig(siyuanApiUrl, siyuanApiToken, middlewareUrl)
+    }
   }
 
   /**
@@ -146,8 +163,8 @@ class SiyuanServerApi {
    * @param useToken - 权限TOKEN
    */
   private async siyuanRequest(url: string, data: any, method?: string, useToken?: boolean) {
-    if (this.env.getStringEnv("VITE_SIYUAN_API_URL") != "") {
-      url = this.env.getStringEnv("VITE_SIYUAN_API_URL") + url
+    if (this.siyuanConfig.baseUrl !== "") {
+      url = this.siyuanConfig.baseUrl + url
     }
 
     let m = "POST"
@@ -162,7 +179,7 @@ class SiyuanServerApi {
     if (useToken != false) {
       Object.assign(fetchOps, {
         headers: {
-          Authorization: `Token ${this.env.getStringEnv("VITE_SIYUAN_AUTH_TOKEN")}`,
+          Authorization: `Token ${this.siyuanConfig.token}`,
         },
       })
     }
