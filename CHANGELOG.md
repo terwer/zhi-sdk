@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/terwer/zhi-sdk/compare/v1.1.0...v1.2.0) (2023-03-20)
+
+
+### Features
+
+* allow custom config ([22659d9](https://github.com/terwer/zhi-sdk/commit/22659d9347575c221390c865ee96f49a61640e92))
+
 ## [1.1.0](https://github.com/terwer/zhi-sdk/compare/v1.0.12...v1.1.0) (2023-03-20)
 
 
