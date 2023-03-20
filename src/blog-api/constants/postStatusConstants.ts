@@ -23,43 +23,20 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
+const POST_STATUS_PUBLISH = "publish"
+const POST_TYPE_DRAFT = "draft"
+const POST_TYPE_INHERIT = "inherit"
 
 /**
- * 思源笔记API
+ * 文章状态通用常量定义
  *
- * @public
  * @author terwer
- * @since 1.0.0
+ * @since 1.1.0
  */
-class SiyuanApi {
-  /**
-   * 思源笔记内核API
-   */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
-
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
-   *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
-   */
-  constructor(env?: Env) {
-    this.serverApi = new SiyuanServerApi(env)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
-  }
+const POST_STATUS_CONSTANTS = {
+  POST_STATUS_PUBLISH,
+  POST_TYPE_DRAFT,
+  POST_TYPE_INHERIT,
 }
 
-export default SiyuanApi
+export default POST_STATUS_CONSTANTS

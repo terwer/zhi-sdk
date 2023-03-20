@@ -23,43 +23,50 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
-
 /**
- * 思源笔记API
+ * HTML 工具类
  *
  * @public
  * @author terwer
- * @since 1.0.0
+ * @since .1.0
  */
-class SiyuanApi {
+class HtmlUtil {
   /**
-   * 思源笔记内核API
-   */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
-
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
+   * 移除标题数字
    *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
+   * @param str - 标题
    */
-  constructor(env?: Env) {
-    this.serverApi = new SiyuanServerApi(env)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
+  public removeTitleNumber(str: string): string {
+    let newstr = str
+
+    // 移除序号
+    const publisherRegex = /([0-9]*)\./
+    newstr = newstr.replace(publisherRegex, "")
+
+    return newstr
+  }
+
+  /**
+   * 删除挂件的HTML
+   * @param str - 原字符
+   */
+  public removeWidgetTag(str: string): string {
+    let newstr = str.toString()
+
+    // 旧版发布挂件
+    const publisherRegex = /<iframe.*src="\/widgets\/publisher.*<\/iframe>/g
+    newstr = newstr.replace(publisherRegex, "")
+
+    // 新版发布挂件
+    const syPublisherRegex = /<iframe.*src="\/widgets\/sy-post-publisher.*<\/iframe>/g
+    newstr = newstr.replace(syPublisherRegex, "")
+
+    // 文章属性挂件
+    const noteAttrRegex = /<iframe.*\/widgets\/Note*\sAttrs.*\/iframe>/g
+    newstr = newstr.replace(noteAttrRegex, "")
+
+    return newstr
   }
 }
 
-export default SiyuanApi
+export default HtmlUtil

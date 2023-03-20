@@ -2,49 +2,43 @@
 
 ## [1.0.12](https://github.com/terwer/zhi-sdk/compare/v1.0.11...v1.0.12) (2023-03-16)
 
-
 ### Miscellaneous
 
-* **deps-dev:** Bump vitepress from 1.0.0-alpha.58 to 1.0.0-alpha.60 ([cc3fd09](https://github.com/terwer/zhi-sdk/commit/cc3fd090b519fa25e388d2720c01e61702061d48))
-* update vitepress ([4c404cd](https://github.com/terwer/zhi-sdk/commit/4c404cd394ecb8e64945372304e1eae0af7917db))
-* update zhi-log ([7213ad6](https://github.com/terwer/zhi-sdk/commit/7213ad6a87f303657dd8c9aa327319db4f62d1d2))
+- **deps-dev:** Bump vitepress from 1.0.0-alpha.58 to 1.0.0-alpha.60 ([cc3fd09](https://github.com/terwer/zhi-sdk/commit/cc3fd090b519fa25e388d2720c01e61702061d48))
+- update vitepress ([4c404cd](https://github.com/terwer/zhi-sdk/commit/4c404cd394ecb8e64945372304e1eae0af7917db))
+- update zhi-log ([7213ad6](https://github.com/terwer/zhi-sdk/commit/7213ad6a87f303657dd8c9aa327319db4f62d1d2))
 
 ## [1.0.11](https://github.com/terwer/zhi-sdk/compare/v1.0.10...v1.0.11) (2023-03-15)
 
-
 ### Miscellaneous
 
-* **deps-dev:** Bump vitepress from 1.0.0-alpha.56 to 1.0.0-alpha.58 ([6e94ff4](https://github.com/terwer/zhi-sdk/commit/6e94ff495e5a74318040a42d32adc3be2d32873c))
-* update vitepress ([6ea7d13](https://github.com/terwer/zhi-sdk/commit/6ea7d136bac64aed56af5d99eb3adfdbef1d2643))
-* update zhi-log ([af4f481](https://github.com/terwer/zhi-sdk/commit/af4f481eab8afec6363cc34bbfbb4b5c33f20827))
+- **deps-dev:** Bump vitepress from 1.0.0-alpha.56 to 1.0.0-alpha.58 ([6e94ff4](https://github.com/terwer/zhi-sdk/commit/6e94ff495e5a74318040a42d32adc3be2d32873c))
+- update vitepress ([6ea7d13](https://github.com/terwer/zhi-sdk/commit/6ea7d136bac64aed56af5d99eb3adfdbef1d2643))
+- update zhi-log ([af4f481](https://github.com/terwer/zhi-sdk/commit/af4f481eab8afec6363cc34bbfbb4b5c33f20827))
 
 ## [1.0.10](https://github.com/terwer/zhi-sdk/compare/v1.0.9...v1.0.10) (2023-03-14)
 
-
 ### Bug Fixes
 
-* add 1.0.9 docs ([ea1b878](https://github.com/terwer/zhi-sdk/commit/ea1b87856e31977885780d70bdddcb185bafe8b0))
-* add zhi-mini path ([dae1eaf](https://github.com/terwer/zhi-sdk/commit/dae1eafe76e4d702e7237fcb7d08f145c47d1066))
+- add 1.0.9 docs ([ea1b878](https://github.com/terwer/zhi-sdk/commit/ea1b87856e31977885780d70bdddcb185bafe8b0))
+- add zhi-mini path ([dae1eaf](https://github.com/terwer/zhi-sdk/commit/dae1eafe76e4d702e7237fcb7d08f145c47d1066))
 
 ## [1.0.9](https://github.com/terwer/zhi-sdk/compare/v1.0.8...v1.0.9) (2023-03-14)
 
-
 ### Bug Fixes
 
-* add electron utils ([021207b](https://github.com/terwer/zhi-sdk/commit/021207be52bc5c8ed649bc3316c2b7e3f4e57f6d))
-* add electron utils ([702c954](https://github.com/terwer/zhi-sdk/commit/702c954445db5132354a41870d922983bd185216))
-
+- add electron utils ([021207b](https://github.com/terwer/zhi-sdk/commit/021207be52bc5c8ed649bc3316c2b7e3f4e57f6d))
+- add electron utils ([702c954](https://github.com/terwer/zhi-sdk/commit/702c954445db5132354a41870d922983bd185216))
 
 ### Miscellaneous
 
-* **deps-dev:** Bump vitepress from 1.0.0-alpha.52 to 1.0.0-alpha.56 ([681e70d](https://github.com/terwer/zhi-sdk/commit/681e70dc85051acbe88bce0bcaa11b447ab37081))
+- **deps-dev:** Bump vitepress from 1.0.0-alpha.52 to 1.0.0-alpha.56 ([681e70d](https://github.com/terwer/zhi-sdk/commit/681e70dc85051acbe88bce0bcaa11b447ab37081))
 
 ## [1.0.8](https://github.com/terwer/zhi-sdk/compare/v1.0.7...v1.0.8) (2023-03-12)
 
-
 ### Bug Fixes
 
-* add device util ([5c60d81](https://github.com/terwer/zhi-sdk/commit/5c60d8130910776e0b792bc59a3cddc8362594e2))
+- add device util ([5c60d81](https://github.com/terwer/zhi-sdk/commit/5c60d8130910776e0b792bc59a3cddc8362594e2))
 
 ## [1.0.7](https://github.com/terwer/zhi-sdk/compare/v1.0.6...v1.0.7) (2023-03-12)
 

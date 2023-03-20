@@ -23,43 +23,22 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
+/**
+ * 思源笔记
+ */
+const API_TYPE_SIYUAN = "siyuan"
 
 /**
- * 思源笔记API
- *
- * @public
- * @author terwer
- * @since 1.0.0
+ * WordPress
  */
-class SiyuanApi {
-  /**
-   * 思源笔记内核API
-   */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
+const API_TYPE_WORDPRESS = "wordpress"
 
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
-   *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
-   */
-  constructor(env?: Env) {
-    this.serverApi = new SiyuanServerApi(env)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
-  }
+/**
+ * API类型常量定义
+ */
+const BLOG_API_TYPE_CONSTANTS = {
+  API_TYPE_SIYUAN,
+  API_TYPE_WORDPRESS,
 }
 
-export default SiyuanApi
+export default BLOG_API_TYPE_CONSTANTS

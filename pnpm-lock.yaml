@@ -4,16 +4,19 @@ specifiers:
   '@microsoft/api-documenter': ^7.21.5
   '@microsoft/api-extractor': ^7.34.4
   '@types/node': '16'
+  '@types/showdown': ^2.0.0
   '@typescript-eslint/eslint-plugin': ^5.54.1
   '@typescript-eslint/parser': ^5.54.1
   '@vitest/coverage-c8': ^0.29.2
   compare-versions: 6.0.0-rc.1
+  cross-fetch: ^3.1.5
   eslint: ^8.35.0
   eslint-config-prettier: ^8.7.0
   eslint-plugin-prettier: ^4.2.1
   jsdoc-babel: ^0.5.0
   jsdoc2vitepress: ^1.0.5
   prettier: ^2.8.4
+  showdown: ^2.1.0
   ts-node: ^10.9.1
   typescript: ^4.9.5
   vite: ^4.1.4
@@ -27,15 +30,18 @@ specifiers:
 
 dependencies:
   compare-versions: 6.0.0-rc.1
+  showdown: 2.1.0
   zhi-log: 1.6.1
 
 devDependencies:
   '@microsoft/api-documenter': 7.21.5_@types+node@16.18.14
   '@microsoft/api-extractor': 7.34.4_@types+node@16.18.14
   '@types/node': 16.18.14
+  '@types/showdown': 2.0.0
   '@typescript-eslint/eslint-plugin': 5.54.1_mlk7dnz565t663n4razh6a6v6i
   '@typescript-eslint/parser': 5.54.1_ycpbpc6yetojsgtrx3mwntkhsu
   '@vitest/coverage-c8': 0.29.2_vitest@0.29.2
+  cross-fetch: 3.1.5
   eslint: 8.35.0
   eslint-config-prettier: 8.7.0_eslint@8.35.0
   eslint-plugin-prettier: 4.2.1_xprnzp4ul2bcpmfe73av4voica
@@ -2786,6 +2792,10 @@ packages:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
 
+  /@types/showdown/2.0.0:
+    resolution: {integrity: sha512-70xBJoLv+oXjB5PhtA8vo7erjLDp9/qqI63SRHm4REKrwuPOLs8HhXwlZJBJaB4kC18cCZ1UUZ6Fb/PLFW4TCA==}
+    dev: true
+
   /@types/web-bluetooth/0.0.14:
     resolution: {integrity: sha512-5d2RhCard1nQUC3aHcq/gHzWYO6K0WJmAbjO7mQJgCQKtZpgXxv1rOM6O/dBDhDYYVutk1sciOgNSe+5YyfM8A==}
     dev: true
@@ -3870,7 +3880,6 @@ packages:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
     requiresBuild: true
-    dev: true
 
   /common-sequence/2.0.2:
     resolution: {integrity: sha512-jAg09gkdkrDO9EWTdXfv80WWH3yeZl5oT69fGfedBNS9pXUKYInVJ1bJ+/ht2+Moeei48TmSbQDYMc8EOx9G0g==}
@@ -3908,6 +3917,14 @@ packages:
 
   /create-require/1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
+    dev: true
+
+  /cross-fetch/3.1.5:
+    resolution: {integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==}
+    dependencies:
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
     dev: true
 
   /cross-spawn/7.0.3:
@@ -5267,6 +5284,18 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
+  /node-fetch/2.6.7:
+    resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==}
+    engines: {node: 4.x || >=6.0.0}
+    peerDependencies:
+      encoding: ^0.1.0
+    peerDependenciesMeta:
+      encoding:
+        optional: true
+    dependencies:
+      whatwg-url: 5.0.0
+    dev: true
+
   /node-releases/2.0.10:
     resolution: {integrity: sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w==}
     dev: true
@@ -5689,6 +5718,13 @@ packages:
       vscode-textmate: 8.0.0
     dev: true
 
+  /showdown/2.1.0:
+    resolution: {integrity: sha512-/6NVYu4U819R2pUIk79n67SYgJHWCce0a5xTP979WbNp0FL9MN1I1QK662IDU1b6JzKTvmhgI7T7JYIxBi3kMQ==}
+    hasBin: true
+    dependencies:
+      commander: 9.5.0
+    dev: false
+
   /siginfo/2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
     dev: true
@@ -5910,6 +5946,10 @@ packages:
     engines: {node: '>=8.0'}
     dependencies:
       is-number: 7.0.0
+    dev: true
+
+  /tr46/0.0.3:
+    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: true
 
   /ts-morph/17.0.1:
@@ -6422,6 +6462,17 @@ packages:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
     dependencies:
       defaults: 1.0.4
+    dev: true
+
+  /webidl-conversions/3.0.1:
+    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+    dev: true
+
+  /whatwg-url/5.0.0:
+    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
+    dependencies:
+      tr46: 0.0.3
+      webidl-conversions: 3.0.1
     dev: true
 
   /which/2.0.2:

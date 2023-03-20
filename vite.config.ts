@@ -27,4 +27,9 @@ export default defineConfig({
       external: ["path", "fs", "siyuan"],
     },
   },
+  test: {
+    globals: true,
+    environment: "node",
+    setupFiles: ["./test/setup.ts"],
+  },
 })

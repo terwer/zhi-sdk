@@ -23,42 +23,19 @@
  * questions.
  */
 
-import IBlogApi from "~/src/blog-api/IBlogApi"
-import Env from "zhi-env"
-import BLOG_API_TYPE_CONSTANTS from "~/src/blog-api/constants/blogApiTypeConstants"
-import SiYuanApiAdaptor from "~/src/blog-api/adaptor/siyuan/siYuanApiAdaptor"
-import Post from "~/src/blog-api/models/post"
 import UserBlog from "~/src/blog-api/models/userBlog"
+import Post from "~/src/blog-api/models/post"
 
 /**
- * 博客API
+ * 通用博客接口
  *
  * @public
- * @author terwer
- * @since 1.0.0
  */
-class BlogApi implements IBlogApi {
-  private readonly type: string
-  private readonly apiAdaptor: IBlogApi
-
+interface IBlogApi {
   /**
-   * 博客API版本号
+   * 博客配置列表
    */
-  public readonly VERSION
-
-  constructor(type: string, env: Env) {
-    this.VERSION = "1.0.0"
-
-    this.type = type
-    switch (this.type) {
-      case BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN:
-        this.apiAdaptor = new SiYuanApiAdaptor(env)
-        break
-      default:
-        this.apiAdaptor = new SiYuanApiAdaptor(env)
-        break
-    }
-  }
+  getUsersBlogs(): Promise<Array<UserBlog>>
 
   /**
    * 最新文章
@@ -67,25 +44,14 @@ class BlogApi implements IBlogApi {
    * @param page - 页码（可选，部分平台不支持分页）
    * @param keyword - 关键字（可选，部分平台不支持搜索）
    */
-  async getRecentPosts(numOfPosts: number, page?: number, keyword?: string): Promise<Array<Post>> {
-    return this.apiAdaptor.getRecentPosts(numOfPosts, page, keyword)
-  }
-
-  /**
-   * 博客配置列表
-   */
-  async getUsersBlogs(): Promise<Array<UserBlog>> {
-    return this.apiAdaptor.getUsersBlogs()
-  }
+  getRecentPosts(numOfPosts: number, page?: number, keyword?: string): Promise<Array<Post>>
 
   /**
    * 文章详情
    * @param postid - postid
    * @param useSlug - 是否使用的是别名（可选，部分平台不支持）
    */
-  getPost(postid: string, useSlug?: boolean): Promise<Post> {
-    return this.apiAdaptor.getPost(postid, useSlug)
-  }
+  getPost(postid: string, useSlug?: boolean): Promise<Post>
 }
 
-export default BlogApi
+export default IBlogApi

@@ -32,6 +32,7 @@ import Env from "zhi-env"
 import LogFactory from "zhi-log"
 import SdkConfig from "~/src/SdkConfig"
 import SiyuanApi from "~/src/siyuan-api/siyuanApi"
+import IBlogApi from "~/src/blog-api/IBlogApi"
 import BlogApi from "~/src/blog-api/blogApi"
 import SiyuanServerApi from "~/src/siyuan-api/serverApi"
 import SiyuanClientApi from "~/src/siyuan-api/clientApi"
@@ -42,8 +43,14 @@ import ElectronUtil from "~/src/common/electronUtil"
 import DateUtil from "~/src/common/dateUtil"
 import VersionUtil from "~/src/common/versionUtil"
 import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import DeviceUtil from "~/src/common/deviceUtil"
-import { DeviceType } from "~/src/common/deviceUtil"
+import DeviceUtil, { DeviceType } from "~/src/common/deviceUtil"
+import BLOG_API_TYPE_CONSTANTS from "~/src/blog-api/constants/blogApiTypeConstants"
+import MarkdownUtil from "~/src/common/markdownUtil"
+import HtmlUtil from "~/src/common/htmlUtil"
+import NodeUtil from "~/src/common/nodeUtil"
+import Post from "~/src/blog-api/models/post"
+import UserBlog from "~/src/blog-api/models/userBlog"
+import { MarkdownRenderTypeEnum } from "~/src/common/markdownUtil"
 
 /**
  * SDK操作统一入口，建议大部分操作使用此工具类实现
@@ -87,13 +94,14 @@ class ZhiSdk {
    * @param env - 可选，环境变量对象
    */
   constructor(env?: Env) {
-    this.env = env
+    this.env = env ?? new Env({})
     this.logger = LogFactory.defaultLogger(this.env, SdkConfig.LOG_STACK_SIZE)
+    this.common = new Common()
 
     this.siyuanApi = new SiyuanApi()
-    this.blogApi = new BlogApi()
 
-    this.common = new Common()
+    const type = this.env.getEnv("VITE_DEFAULT_TYPE") ?? BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN
+    this.blogApi = new BlogApi(type, this.env)
   }
 
   /**
@@ -116,5 +124,18 @@ class ZhiSdk {
 
 export default ZhiSdk
 export { SiyuanApi, SiyuanServerApi, SiyuanClientApi, SiyuanUtil }
-export { BlogApi }
-export { Common, BrowserUtil, DateUtil, ElectronUtil, StrUtil, VersionUtil, DeviceUtil, DeviceType }
+export { type IBlogApi, BlogApi, Post, UserBlog }
+export {
+  Common,
+  BrowserUtil,
+  DateUtil,
+  type NodeUtil,
+  ElectronUtil,
+  StrUtil,
+  VersionUtil,
+  DeviceUtil,
+  DeviceType,
+  MarkdownUtil,
+  MarkdownRenderTypeEnum,
+  HtmlUtil,
+}

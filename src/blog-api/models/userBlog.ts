@@ -23,43 +23,38 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
-
 /**
- * 思源笔记API
+ * 博客信息定义
  *
  * @public
- * @author terwer
- * @since 1.0.0
  */
-class SiyuanApi {
+class UserBlog {
   /**
-   * 思源笔记内核API
+   * 博客ID
    */
-  public readonly serverApi
+  blogid: string
   /**
-   * 思源笔记客户端API
+   * 博客地址
    */
-  public readonly clientApi
+  url: string
+  /**
+   * 博客名称
+   */
+  blogName: string
+  /**
+   * 是否是管理员
+   */
+  isAdmin?: boolean
+  /**
+   * xmlrpc地址
+   */
+  xmlrpc?: string
 
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
-   *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
-   */
-  constructor(env?: Env) {
-    this.serverApi = new SiyuanServerApi(env)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
+  constructor() {
+    this.blogid = ""
+    this.url = ""
+    this.blogName = ""
   }
 }
 
-export default SiyuanApi
+export default UserBlog

@@ -23,43 +23,52 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
+import Showdown from "showdown"
 
 /**
- * 思源笔记API
+ * Markdown渲染引擎枚举
  *
  * @public
  * @author terwer
- * @since 1.0.0
+ * @since 1.1.0
  */
-class SiyuanApi {
+export enum MarkdownRenderTypeEnum {
   /**
-   * 思源笔记内核API
+   * 使用 lute 渲染引擎
    */
-  public readonly serverApi
+  RenderType_Lute = "lute",
   /**
-   * 思源笔记客户端API
+   * 使用 showdown 渲染引擎
    */
-  public readonly clientApi
+  RenderType_Showdown = "showdown",
+}
+
+/**
+ * Markdown渲染公共方法
+ *
+ * @public
+ */
+class MarkdownUtil {
+  private readonly converter
+
+  constructor(renderType?: MarkdownRenderTypeEnum) {
+    const type = renderType ?? MarkdownRenderTypeEnum.RenderType_Showdown
+
+    if (type == MarkdownRenderTypeEnum.RenderType_Showdown) {
+      this.converter = new Showdown.Converter()
+    } else {
+      // TODO lute
+      this.converter = new Showdown.Converter()
+    }
+  }
 
   /**
-   * 思源笔记工具类
+   * 渲染Markdown
+   * @param md - markdown
    */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
-   *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
-   */
-  constructor(env?: Env) {
-    this.serverApi = new SiyuanServerApi(env)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
+  public renderHTML(md: string) {
+    return this.converter.makeHtml(md)
   }
 }
 
-export default SiyuanApi
+export default MarkdownUtil

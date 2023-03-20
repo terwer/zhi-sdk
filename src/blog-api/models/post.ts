@@ -23,43 +23,88 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
+import POST_STATUS_CONSTANTS from "~/src/blog-api/constants/postStatusConstants"
 
 /**
- * 思源笔记API
+ * 通用文章模型定义
  *
  * @public
- * @author terwer
- * @since 1.0.0
  */
-class SiyuanApi {
+class Post {
   /**
-   * 思源笔记内核API
+   * 文章ID
    */
-  public readonly serverApi
+  postid: string
   /**
-   * 思源笔记客户端API
+   * 标题
    */
-  public readonly clientApi
+  title: string
+  /**
+   * 逗号分隔的标签
+   */
+  mt_keywords: string
+  /**
+   * 链接
+   */
+  link?: string
+  /**
+   * 永久链接
+   */
+  permalink: string
+  /**
+   * 摘要
+   */
+  shortDesc?: string
+  /**
+   * 描述
+   */
+  description: string
+  /**
+   * 短评
+   */
+  mt_excerpt?: string
+  /**
+   * 别名
+   */
+  wp_slug: string
+  /**
+   * 创建时间
+   */
+  dateCreated: Date
+  /**
+   * 分类
+   */
+  categories: Array<string>
+  /**
+   * 更多
+   */
+  mt_text_more?: string
+  /**
+   * 发布状态
+   */
+  post_status?: string
+  /**
+   * 是否发布
+   */
+  isPublished: boolean
+  /**
+   * 发布密码
+   */
+  wp_password: string
 
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
-   *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
-   */
-  constructor(env?: Env) {
-    this.serverApi = new SiyuanServerApi(env)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
+  constructor() {
+    this.postid = ""
+    this.title = ""
+    this.mt_keywords = ""
+    this.permalink = ""
+    this.description = ""
+    this.wp_slug = ""
+    this.dateCreated = new Date()
+    this.categories = []
+    this.isPublished = true
+    this.post_status = POST_STATUS_CONSTANTS.POST_STATUS_PUBLISH
+    this.wp_password = ""
   }
 }
 
-export default SiyuanApi
+export default Post

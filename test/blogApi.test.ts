@@ -23,43 +23,20 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
+import { describe, it } from "vitest"
 
-/**
- * 思源笔记API
- *
- * @public
- * @author terwer
- * @since 1.0.0
- */
-class SiyuanApi {
-  /**
-   * 思源笔记内核API
-   */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
+describe("test blogApi", () => {
+  it("test getRecentPosts", async () => {
+    // const env = new Env(import.meta.env)
+    // const blogApi = new BlogApi(BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN, env)
+    // const result = await blogApi.getRecentPosts(10)
+    // console.log(result)
+  })
 
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
-   *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
-   */
-  constructor(env?: Env) {
-    this.serverApi = new SiyuanServerApi(env)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
-  }
-}
-
-export default SiyuanApi
+  it("test getPost", async () => {
+    // const env = new Env(import.meta.env)
+    // const blogApi = new BlogApi(BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN, env)
+    // const result = await blogApi.getPost("20230319123111-dt513rg")
+    // console.log(result)
+  })
+})
