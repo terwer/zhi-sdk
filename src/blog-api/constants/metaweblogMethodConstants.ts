@@ -23,43 +23,26 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
+const GET_USERS_BLOGS = "blogger.getUsersBlogs"
+const NEW_POST = "metaWeblog.newPost"
+const EDIT_POST = "metaWeblog.editPost"
+const DELETE_POST = "blogger.deletePost"
+const GET_RECENT_POSTS = "metaWeblog.getRecentPosts"
+const GET_POST = "metaWeblog.getPost"
 
 /**
- * 思源笔记API
+ * Metaweblog API 通用常量定义
  *
- * @public
  * @author terwer
- * @since 1.0.0
+ * @since 1.1.0
  */
-class SiyuanApi {
-  /**
-   * 思源笔记内核API
-   */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
-
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
-   *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
-   */
-  constructor(env?: Env) {
-    this.serverApi = new SiyuanServerApi(env)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
-  }
+const METAWEBLOG_METHOD_CONSTANTS = {
+  GET_USERS_BLOGS,
+  NEW_POST,
+  EDIT_POST,
+  DELETE_POST,
+  GET_RECENT_POSTS,
+  GET_POST,
 }
 
-export default SiyuanApi
+export default METAWEBLOG_METHOD_CONSTANTS
