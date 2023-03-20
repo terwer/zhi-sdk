@@ -46,16 +46,23 @@ class BlogApi implements IBlogApi {
    */
   public readonly VERSION
 
-  constructor(type: string, env: Env) {
+  /**
+   * 初始化博客 API
+   *
+   * @param type 博客类型
+   * @param env 环境变量，注意：环境变量会在配置对象失效时候生效
+   * @param cfg 对应博客的配置，例如：SiyuanConfig
+   */
+  constructor(type: string, env: Env, cfg: any) {
     this.VERSION = "1.0.0"
 
     this.type = type
     switch (this.type) {
       case BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN:
-        this.apiAdaptor = new SiYuanApiAdaptor(env)
+        this.apiAdaptor = new SiYuanApiAdaptor(env, cfg)
         break
       default:
-        this.apiAdaptor = new SiYuanApiAdaptor(env)
+        this.apiAdaptor = new SiYuanApiAdaptor(env, cfg)
         break
     }
   }

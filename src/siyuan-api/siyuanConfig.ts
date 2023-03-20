@@ -23,45 +23,21 @@
  * questions.
  */
 
-import SiyuanServerApi from "~/src/siyuan-api/serverApi"
-import SiyuanClientApi from "~/src/siyuan-api/clientApi"
-import SiyuanUtil from "~/src/siyuan-api/siyuanUtil"
-import Env from "zhi-env"
-import SiyuanConfig from "~/src/siyuan-api/siyuanConfig"
-
 /**
- * 思源笔记API
+ * 思源笔记配置
  *
- * @public
  * @author terwer
- * @since 1.0.0
  */
-class SiyuanApi {
-  /**
-   * 思源笔记内核API
-   */
-  public readonly serverApi
-  /**
-   * 思源笔记客户端API
-   */
-  public readonly clientApi
+class SiYuanConfig {
+  public readonly baseUrl
+  public readonly token
+  public readonly middlewareUrl
 
-  /**
-   * 思源笔记工具类
-   */
-  public readonly siyuanUtil
-
-  /**
-   * 构造思源 API对象
-   *
-   * @param env - 可选，注意：serverApi必须传递env才能使用
-   * @param cfg - 可选，注意：y优先级比环境变量高
-   */
-  constructor(env?: Env, cfg?: SiyuanConfig) {
-    this.serverApi = new SiyuanServerApi(env, cfg)
-    this.clientApi = new SiyuanClientApi()
-    this.siyuanUtil = new SiyuanUtil()
+  constructor(baseUrl: string, token: string, middlewareUrl: string) {
+    this.baseUrl = baseUrl
+    this.token = token
+    this.middlewareUrl = middlewareUrl
   }
 }
 
-export default SiyuanApi
+export default SiYuanConfig

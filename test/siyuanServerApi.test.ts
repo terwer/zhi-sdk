@@ -24,12 +24,27 @@
  */
 
 import { describe, it } from "vitest"
+import Env from "zhi-env"
+import SiyuanApi from "~/src/siyuan-api/siyuanApi"
+import SiyuanConfig from "~/src/siyuan-api/siyuanConfig"
 
 describe("test siyuan serverApi", () => {
   it("test api", async () => {
-    // const env = new Env(import.meta.env)
-    // const siyuanApi = new SiyuanApi(env)
-    // const result = await siyuanApi.serverApi.getRootBlocks(1, 10, "")
-    // console.log(result)
+    const env = new Env(import.meta.env)
+    const siyuanApi = new SiyuanApi(env)
+    const result = await siyuanApi.serverApi.getRootBlocks(1, 10, "")
+    console.log(result)
+  })
+
+  it("test api2", async () => {
+    const env = new Env(import.meta.env)
+    const siyuanConfig = new SiyuanConfig(
+      env.getStringEnv("VITE_SIYUAN_API_URL"),
+      env.getStringEnv("VITE_SIYUAN_AUTH_TOKEN"),
+      ""
+    )
+    const siyuanApi = new SiyuanApi(undefined, siyuanConfig)
+    const result = await siyuanApi.serverApi.getRootBlocks(1, 10, "")
+    console.log(result)
   })
 })
