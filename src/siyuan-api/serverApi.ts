@@ -74,7 +74,7 @@ class SiyuanServerApi {
   /**
    * 获取块属性
    *
-   * @param - blockId
+   * @param blockId - blockId
    */
   public async getBlockAttrs(blockId: string) {
     const data = {
@@ -87,8 +87,8 @@ class SiyuanServerApi {
   /**
    * 设置块属性
    *
-   * @param - blockId
-   * @param - attrs
+   * @param blockId - blockId
+   * @param attrs - 属性
    */
   public async setBlockAttrs(blockId: string, attrs: any) {
     const url = "/api/attr/setBlockAttrs"

@@ -26,6 +26,7 @@
 /**
  * HTML 工具类
  *
+ * @public
  * @author terwer
  * @since .1.0
  */

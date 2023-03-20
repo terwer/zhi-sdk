@@ -26,6 +26,11 @@
 import UserBlog from "~/src/blog-api/models/userBlog"
 import Post from "~/src/blog-api/models/post"
 
+/**
+ * 通用博客接口
+ *
+ * @public
+ */
 interface IBlogApi {
   /**
    * 博客配置列表

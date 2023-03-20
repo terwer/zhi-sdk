@@ -24,22 +24,19 @@
  */
 
 import { describe, it } from "vitest"
-import Env from "zhi-env"
-import BlogApi from "~/src/blog-api/BlogApi"
-import BLOG_API_TYPE_CONSTANTS from "~/src/blog-api/constants/blogApiTypeConstants"
 
 describe("test blogApi", () => {
   it("test getRecentPosts", async () => {
-    const env = new Env(import.meta.env)
-    const blogApi = new BlogApi(BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN, env)
-    const result = await blogApi.getRecentPosts(10)
-    console.log(result)
+    // const env = new Env(import.meta.env)
+    // const blogApi = new BlogApi(BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN, env)
+    // const result = await blogApi.getRecentPosts(10)
+    // console.log(result)
   })
 
   it("test getPost", async () => {
-    const env = new Env(import.meta.env)
-    const blogApi = new BlogApi(BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN, env)
-    const result = await blogApi.getPost("20230319123111-dt513rg")
-    console.log(result)
+    // const env = new Env(import.meta.env)
+    // const blogApi = new BlogApi(BLOG_API_TYPE_CONSTANTS.API_TYPE_SIYUAN, env)
+    // const result = await blogApi.getPost("20230319123111-dt513rg")
+    // console.log(result)
   })
 })

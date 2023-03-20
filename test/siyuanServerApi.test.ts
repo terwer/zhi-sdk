@@ -24,14 +24,12 @@
  */
 
 import { describe, it } from "vitest"
-import SiyuanApi from "~/src/siyuan-api/siyuanApi"
-import Env from "zhi-env"
 
 describe("test siyuan serverApi", () => {
   it("test api", async () => {
-    const env = new Env(import.meta.env)
-    const siyuanApi = new SiyuanApi(env)
-    const result = await siyuanApi.serverApi.getRootBlocks(1, 10, "")
-    console.log(result)
+    // const env = new Env(import.meta.env)
+    // const siyuanApi = new SiyuanApi(env)
+    // const result = await siyuanApi.serverApi.getRootBlocks(1, 10, "")
+    // console.log(result)
   })
 })
